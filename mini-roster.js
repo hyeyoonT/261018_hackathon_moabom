@@ -37,8 +37,11 @@ function render() {
   document.querySelector('#progress-bar').style.width = `${percentage}%`;
   document.querySelector('#progress-caption').textContent = task ? `${percentage}% 완료 · ${task.title}` : '과제를 추가하면 학생별 진행 상황을 볼 수 있어요.';
   list.innerHTML = classroom.students.length ? classroom.students.map((student, index) => {
-    const done = Boolean(task && course.completions?.[student.id]?.[task.id]);
-    return `<article class="student-row ${done ? 'is-done' : 'is-pending'}"><span class="student-index">${String(index + 1).padStart(2, '0')}</span><span class="student-name">${escapeHtml(student.name)}</span><span class="student-status"><i>${done ? '✓' : '·'}</i>${done ? '완료' : '진행 중'}</span></article>`;
+    const completedTasks = course.tasks.filter((entry) => course.completions?.[student.id]?.[entry.id]).length;
+    const category = course.tasks.length && completedTasks === course.tasks.length ? 'complete' : completedTasks ? 'partial' : 'none';
+    const label = category === 'complete' ? '전체 완료' : category === 'partial' ? '일부 완료' : '미완료';
+    const marker = category === 'complete' ? '✓' : category === 'partial' ? '◐' : '·';
+    return `<article class="student-row progress-${category}"><span class="student-index">${String(student.number || index + 1).padStart(2, '0')}</span><span class="student-name">${escapeHtml(student.name)}</span><span class="student-status"><i>${marker}</i>${label}</span></article>`;
   }).join('') : '<div class="mini-empty">아직 등록된 학생이 없어요.</div>';
 }
 

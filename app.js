@@ -199,7 +199,6 @@ function renderTeacher() {
   const activeDone = activeTask ? classroom.students.filter((student) => isDone(classroom, student.id, activeTask.id)).length : 0;
   const percent = classroom.students.length ? Math.round(activeDone / classroom.students.length * 100) : 0;
   const incomplete = classroom.students.filter((student) => countDone(classroom, student) < classroom.tasks.length);
-  const completedStudents = classroom.students.filter((student) => classroom.tasks.length > 0 && countDone(classroom, student) === classroom.tasks.length).length;
   const viewLabels = [
     ['current', '선택 과제'], ['table', '전체 과제표'], ['compact', '좁은 명렬표'], ['seats', '자리배치표'], ['incomplete', '미완료 학생'], ['summary', '진행 요약']
   ];
@@ -218,7 +217,7 @@ function renderTeacher() {
       <article class="overview-card primary"><span class="overview-label">선택 과제 진행률</span><div class="overview-value">${percent}<small>%</small></div><div class="overview-caption">${activeTask ? escapeHtml(activeTask.title) : '과제를 추가해 주세요'} · ${activeDone}명 완료</div><span class="overview-watermark" aria-hidden="true"></span></article>
       <article class="overview-card"><span class="overview-label">참여 학생</span><div class="overview-value">${classroom.students.length}<small>명</small></div><div class="overview-caption">${classroom.name} 등록 인원</div></article>
       <article class="overview-card"><span class="overview-label">진행 중인 과제</span><div class="overview-value">${classroom.tasks.length}<small>개</small></div><div class="overview-caption">과제 안내 ${classroom.tasks.filter((task) => task.instructions).length}개 포함</div></article>
-      <article class="overview-card ${activeDone ? 'has-completions' : ''}"><span class="overview-label">선택 과제 완료</span><div class="overview-value">${activeDone}<small> / ${classroom.students.length}명</small></div><div class="overview-caption">${classroom.students.length - activeDone}명 진행 중</div></article>
+      <article class="overview-card"><span class="overview-label">선택 과제 완료</span><div class="overview-value">${activeDone}<small> / ${classroom.students.length}명</small></div><div class="overview-caption">${classroom.students.length - activeDone}명 진행 중</div></article>
     </section>
     <section class="view-panel">
       <div class="panel-topline"><div class="panel-title"><span class="view-icon">${viewIcons[view]}</span><div><h2>${viewTitles[view]}</h2><p>${viewDescriptions[view]}</p></div></div>
@@ -285,29 +284,32 @@ function renderView(classroom, incomplete) {
     if (!task) return '<div class="empty-state">먼저 과제를 추가하면 선택 과제의 진행률을 확인할 수 있어요.</div>';
     const doneStudents = classroom.students.filter((student) => isDone(classroom, student.id, task.id));
     const pendingStudents = classroom.students.filter((student) => !isDone(classroom, student.id, task.id));
-    const renderStudents = (students, done) => students.map((student) => `<div class="task-status-card ${done ? 'is-done' : 'is-pending'}"><span class="task-status-icon" aria-hidden="true">${done ? '✓' : '·'}</span><span class="student-number">${String(student.number || classroom.students.indexOf(student) + 1).padStart(2, '0')}</span><strong>${escapeHtml(student.name)}</strong><span class="task-status-label">${done ? '완료' : '진행 중'}</span></div>`).join('') || `<div class="task-status-empty">${done ? '아직 완료한 학생이 없어요.' : '모든 학생이 이 과제를 완료했어요.'}</div>`;
+    const renderStudents = (students, done) => students.map((student) => {
+      const category = progressCategory(classroom, student);
+      return `<div class="task-status-card progress-${category} ${done ? 'selected-task-done' : ''}"><span class="task-status-icon" aria-hidden="true">${done ? '✓' : '·'}</span><span class="student-number">${String(student.number || classroom.students.indexOf(student) + 1).padStart(2, '0')}</span><strong>${escapeHtml(student.name)}</strong><span class="task-status-label">${progressLabel(category)}</span></div>`;
+    }).join('') || `<div class="task-status-empty">${done ? '아직 완료한 학생이 없어요.' : '모든 학생이 이 과제를 완료했어요.'}</div>`;
     return `<div class="current-task-summary"><div><span class="section-kicker">현재 선택 과제</span><h3>${escapeHtml(task.title)}</h3>${task.instructions ? `<p>${escapeHtml(task.instructions)}</p>` : ''}</div><div class="current-task-score"><strong>${doneStudents.length}<small> / ${classroom.students.length}</small></strong><span>학생 완료</span></div></div><div class="task-status-columns"><section class="task-status-group"><h3><span class="done-key">✓</span> 완료 <small>${doneStudents.length}명</small></h3><div class="task-status-list">${renderStudents(doneStudents, true)}</div></section><section class="task-status-group"><h3><span class="pending-key">·</span> 진행 중 <small>${pendingStudents.length}명</small></h3><div class="task-status-list">${renderStudents(pendingStudents, false)}</div></section></div>`;
   }
   if (view === 'table') {
     if (!classroom.students.length) return '<div class="empty-state">아직 등록된 학생이 없어요. 아래에서 학생 이름을 추가해 주세요.</div>';
     if (!classroom.tasks.length) return '<div class="empty-state">과제를 추가하면 학생별 진행 현황이 여기에 표시돼요.</div>';
-    return `<div class="table-scroll"><table class="progress-table"><thead><tr><th scope="col">학생 / 진행 과제</th>${classroom.tasks.map((task) => `<th scope="col">${escapeHtml(task.title)}</th>`).join('')}<th scope="col">완료 수</th></tr></thead><tbody>${classroom.students.map((student, index) => `<tr class="table-student-row ${selectedTaskId && isDone(classroom, student.id, selectedTaskId) ? 'is-task-done' : ''}"><td><span class="student-name-cell"><span class="student-number">${String(student.number || index + 1).padStart(2, '0')}</span>${escapeHtml(student.name)}</span></td>${classroom.tasks.map((task) => `<td><span class="status-pill ${isDone(classroom, student.id, task.id) ? 'done' : 'pending'}">${isDone(classroom, student.id, task.id) ? '✓ 완료' : '진행 중'}</span></td>`).join('')}<td class="completion-count">${countDone(classroom, student)} / ${classroom.tasks.length}</td></tr>`).join('')}</tbody></table></div>`;
+    return `<div class="table-scroll"><table class="progress-table"><thead><tr><th scope="col">학생 / 진행 과제</th>${classroom.tasks.map((task) => `<th scope="col">${escapeHtml(task.title)}</th>`).join('')}<th scope="col">완료 수</th></tr></thead><tbody>${classroom.students.map((student, index) => `<tr class="table-student-row progress-${progressCategory(classroom, student)}"><td><span class="student-name-cell"><span class="student-number">${String(student.number || index + 1).padStart(2, '0')}</span>${escapeHtml(student.name)}</span></td>${classroom.tasks.map((task) => `<td><span class="status-pill ${isDone(classroom, student.id, task.id) ? 'done' : 'pending'}">${isDone(classroom, student.id, task.id) ? '✓ 완료' : '진행 중'}</span></td>`).join('')}<td class="completion-count">${countDone(classroom, student)} / ${classroom.tasks.length}</td></tr>`).join('')}</tbody></table></div>`;
   }
   if (view === 'compact') {
     return `<div class="compact-view"><div class="compact-main"><h3>우리 반 진행 요약</h3><p>학생별로 완료한 과제 수를 빠르게 확인해요.</p><div class="compact-list">${classroom.students.map((student, index) => {
-      const activeDone = selectedTaskId && isDone(classroom, student.id, selectedTaskId);
-      return `<div class="compact-row ${activeDone ? 'is-task-done' : ''}"><span class="compact-person"><span class="student-number">${String(student.number || index + 1).padStart(2, '0')}</span>${escapeHtml(student.name)}${activeDone ? '<span class="mini-done-check" aria-label="선택한 과제 완료">✓</span>' : ''}</span><span class="compact-count">${countDone(classroom, student)} / ${classroom.tasks.length} 완료</span></div>`;
+      const category = progressCategory(classroom, student);
+      return `<div class="compact-row progress-${category}"><span class="compact-person"><span class="student-number">${String(student.number || index + 1).padStart(2, '0')}</span>${escapeHtml(student.name)}<span class="progress-marker progress-${category}" aria-label="${progressLabel(category)}">${progressSymbol(category)}</span></span><span class="compact-count">${progressLabel(category)} · ${countDone(classroom, student)} / ${classroom.tasks.length}</span></div>`;
     }).join('') || '<div class="empty-state">아직 학생이 없어요.</div>'}</div></div><aside class="side-roster"><div class="side-roster-head"><h3>미니 명렬표</h3><span>${classroom.students.length}명</span></div><div class="side-roster-list">${classroom.students.map((student, index) => {
-      const activeDone = selectedTaskId && isDone(classroom, student.id, selectedTaskId);
-      return `<div class="side-roster-item ${activeDone ? 'is-task-done' : ''}"><span><span class="roster-mini-number">${String(student.number || index + 1).padStart(2, '0')}</span>${escapeHtml(student.name)}${activeDone ? '<i class="mini-done-check" aria-label="선택한 과제 완료">✓</i>' : ''}</span><span class="roster-progress" aria-label="진행률 ${classroom.tasks.length ? Math.round(countDone(classroom, student) / classroom.tasks.length * 100) : 0}%"><i style="width:${classroom.tasks.length ? countDone(classroom, student) / classroom.tasks.length * 100 : 0}%"></i></span></div>`;
+      const category = progressCategory(classroom, student);
+      return `<div class="side-roster-item progress-${category}"><span><span class="roster-mini-number">${String(student.number || index + 1).padStart(2, '0')}</span>${escapeHtml(student.name)}<i class="progress-marker progress-${category}" aria-label="${progressLabel(category)}">${progressSymbol(category)}</i></span><span class="roster-progress" aria-label="진행률 ${classroom.tasks.length ? Math.round(countDone(classroom, student) / classroom.tasks.length * 100) : 0}%"><i style="width:${classroom.tasks.length ? countDone(classroom, student) / classroom.tasks.length * 100 : 0}%"></i></span></div>`;
     }).join('')}</div></aside></div>`;
   }
   if (view === 'seats') {
     const cells = classroom.rows * classroom.cols;
     return `<div class="seat-stage"><div class="seat-tools"><label for="seat-rows">행</label><input id="seat-rows" type="number" min="1" max="10" value="${classroom.rows}"><label for="seat-cols">열</label><input id="seat-cols" type="number" min="1" max="10" value="${classroom.cols}"><button class="button secondary small" id="save-seats" type="button">배치 저장</button><span class="section-kicker">이름표를 끌어 원하는 자리로 옮기세요</span></div><div class="seat-board-label">칠 판</div><div class="seat-grid" style="grid-template-columns:repeat(${classroom.cols}, minmax(74px, 1fr))">${Array.from({ length: cells }, (_, seat) => {
       const student = classroom.students.find((entry) => entry.seat === seat);
-      const activeDone = student && selectedTaskId && isDone(classroom, student.id, selectedTaskId);
-      return `<div class="seat" data-seat="${seat}">${student ? `<div class="seat-card ${activeDone ? 'is-task-done' : ''}" draggable="true" tabindex="0" data-student="${escapeHtml(student.id)}"><span class="seat-avatar">${escapeHtml(student.name.slice(-1))}</span><span class="seat-info"><strong>${escapeHtml(student.name)}</strong><span>${countDone(classroom, student)} / ${classroom.tasks.length} 전체 완료</span></span><span class="seat-status-mark ${activeDone ? 'is-done' : 'is-pending'}" aria-label="${activeDone ? '선택 과제 완료' : '선택 과제 진행 중'}">${activeDone ? '✓' : '·'}</span></div>` : '<span class="empty-seat">빈 자리</span>'}</div>`;
+      const category = student ? progressCategory(classroom, student) : 'none';
+      return `<div class="seat" data-seat="${seat}">${student ? `<div class="seat-card progress-${category}" draggable="true" tabindex="0" data-student="${escapeHtml(student.id)}"><span class="seat-avatar">${escapeHtml(student.name.slice(-1))}</span><span class="seat-info"><strong>${escapeHtml(student.name)}</strong><span>${progressLabel(category)} · ${countDone(classroom, student)} / ${classroom.tasks.length} 완료</span></span><span class="seat-status-mark progress-${category}" aria-label="${progressLabel(category)}">${progressSymbol(category)}</span></div>` : '<span class="empty-seat">빈 자리</span>'}</div>`;
     }).join('')}</div></div>`;
   }
   if (view === 'incomplete') {
@@ -315,7 +317,8 @@ function renderView(classroom, incomplete) {
     if (!studentsWithWork.length) return '<div class="empty-state">모든 학생이 과제를 완료했어요. 정말 멋져요!</div>';
     return `<div class="incomplete-list">${studentsWithWork.map((student, index) => {
       const pending = classroom.tasks.filter((task) => !isDone(classroom, student.id, task.id));
-      return `<div class="incomplete-row"><span class="student-name-cell"><span class="student-number">${String(index + 1).padStart(2, '0')}</span>${escapeHtml(student.name)}</span><span class="incomplete-tasks">${pending.map((task) => `<span class="task-chip">${escapeHtml(task.title)}</span>`).join('')}</span><span class="incomplete-total">${pending.length}개 남음</span></div>`;
+      const category = progressCategory(classroom, student);
+      return `<div class="incomplete-row progress-${category}"><span class="student-name-cell"><span class="student-number">${String(student.number || index + 1).padStart(2, '0')}</span><span class="progress-marker progress-${category}" aria-label="${progressLabel(category)}">${progressSymbol(category)}</span>${escapeHtml(student.name)}</span><span class="incomplete-tasks">${pending.map((task) => `<span class="task-chip">${escapeHtml(task.title)}</span>`).join('')}</span><span class="incomplete-total">${progressLabel(category)} · ${pending.length}개 남음</span></div>`;
     }).join('')}</div>`;
   }
   return `<div class="summary-list">${classroom.tasks.map((task) => {
