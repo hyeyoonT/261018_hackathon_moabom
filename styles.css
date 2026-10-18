@@ -207,6 +207,29 @@ h1, h2, h3, p { margin-top: 0; }
 .progress-track i { display: block; height: 100%; border-radius: inherit; background: var(--green); transition: width .25s; }
 .summary-percent { font: 11px "DM Mono", monospace; text-align: right; }
 .summary-fraction { color: #828980; font: 9px "DM Mono", monospace; text-align: right; }
+.all-progress-view { padding: 18px; }
+.all-progress-overview { padding: 17px; border: 1px solid var(--card-blue-border); border-radius: 9px; background: var(--card-blue); }
+.all-progress-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.all-progress-heading h3 { margin: 5px 0 3px; font-size: 16px; }
+.all-progress-heading p { margin: 0; color: #71808d; font-size: 10px; }
+.all-progress-score { min-width: 100px; padding: 8px 13px; border: 1px solid #c4d8c8; border-radius: 8px; color: var(--done-ink); background: #e3f0e4; text-align: center; }
+.all-progress-score strong { display: block; font-size: 22px; letter-spacing: -.04em; }
+.all-progress-score strong small { margin-left: 2px; font-size: 12px; }
+.all-progress-score span { display: block; margin-top: 2px; font-size: 9px; }
+.all-progress-track { height: 10px; overflow: hidden; margin-top: 14px; border-radius: 99px; background: #d9e3ec; }
+.all-progress-track i { display: block; height: 100%; border-radius: inherit; background: var(--green); transition: width .25s; }
+.all-progress-caption { margin-top: 7px; color: #576a5b; font: 10px "DM Mono", monospace; text-align: right; }
+.all-progress-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.all-progress-group { min-width: 0; padding: 12px; border: 1px solid var(--card-blue-border); border-radius: 8px; background: #f8fafc; }
+.all-progress-group.progress-complete { border-color: var(--done-border); background: var(--done-bg); }
+.all-progress-group.progress-partial { border-color: var(--partial-border); background: var(--partial-bg); }
+.all-progress-group h3 { display: flex; align-items: center; gap: 6px; margin: 0 0 9px; font-size: 11px; }
+.all-progress-group h3 small { margin-left: auto; color: #6d7881; font: 9px "DM Mono", monospace; }
+.all-progress-student { min-height: 30px; display: flex; align-items: center; gap: 6px; padding: 3px 2px; border-top: 1px solid #71808d20; }
+.all-progress-student .student-number { width: 19px; height: 19px; flex-basis: 19px; font-size: 8px; }
+.all-progress-student strong { min-width: 0; flex: 1; overflow: hidden; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.all-progress-student > span:last-child { color: #68767f; font: 8px "DM Mono", monospace; white-space: nowrap; }
+.all-progress-empty { margin: 0; padding: 8px 2px; color: #7a858d; font-size: 9px; }
 .panel-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 18px; border-top: 1px solid #ecece6; color: #858c82; font-size: 9px; }
 .course-link-panel { display: grid; grid-template-columns: minmax(180px, .8fr) minmax(340px, 2fr) 140px; align-items: center; gap: 12px; margin: -9px 0 19px; padding: 13px 15px; border: 1px solid #dfe3d9; border-radius: 9px; background: #edf2eb; }
 .course-link-panel h2 { margin: 5px 0 0; font-size: 14px; letter-spacing: -.03em; }
@@ -398,6 +421,10 @@ h1, h2, h3, p { margin-top: 0; }
   .incomplete-tasks { grid-column: 1 / -1; grid-row: 2; }
   .summary-list { padding: 5px 12px; }
   .summary-row { grid-template-columns: minmax(90px, 1fr) 1fr 38px; gap: 8px; }
+  .all-progress-view { padding: 12px; }
+  .all-progress-groups { grid-template-columns: 1fr; }
+  .all-progress-overview { padding: 13px; }
+  .all-progress-score { min-width: 78px; padding: 7px 9px; }
   .summary-fraction { display: none; }
   .summary-task-name { font-size: 10px; }
   .summary-percent { font-size: 10px; }

@@ -1,5 +1,6 @@
 const app = document.querySelector('#app');
 const toast = document.querySelector('#toast');
+const ALL_TASKS = '__all__';
 let state = { classrooms: [] };
 const pageParams = new URLSearchParams(window.location.search);
 let role = pageParams.get('role') === 'student' ? 'student' : 'teacher';
@@ -127,7 +128,7 @@ function courseSelect(classroom) {
 }
 
 function taskSelect(classroom) {
-  return `<label class="select-wrap toolbar-select active-task-wrap"><span>현재 과제</span><select id="active-task-select" aria-label="현재 확인할 과제 선택" ${classroom.tasks.length ? '' : 'disabled'}>${classroom.tasks.map((task) => `<option value="${escapeHtml(task.id)}" ${task.id === selectedTaskId ? 'selected' : ''}>${escapeHtml(task.title)}</option>`).join('') || '<option>과제를 먼저 추가해 주세요</option>'}</select></label>`;
+  return `<label class="select-wrap toolbar-select active-task-wrap"><span>현재 확인 과제</span><select id="active-task-select" aria-label="현재 확인할 과제 선택"><option value="${ALL_TASKS}" ${selectedTaskId === ALL_TASKS ? 'selected' : ''}>전체 과제 보기</option>${classroom.tasks.map((task) => `<option value="${escapeHtml(task.id)}" ${task.id === selectedTaskId ? 'selected' : ''}>${escapeHtml(task.title)}</option>`).join('')}</select></label>`;
 }
 
 function classCodeControl(classroom) {
@@ -194,11 +195,19 @@ function renderTeacher() {
   }
   if (!course) return renderNoCourse(baseClassroom);
 
-  if (!classroom.tasks.some((task) => task.id === selectedTaskId)) selectedTaskId = classroom.tasks[0]?.id || '';
+  if (selectedTaskId !== ALL_TASKS && !classroom.tasks.some((task) => task.id === selectedTaskId)) selectedTaskId = classroom.tasks[0]?.id || '';
 
   const activeTask = classroom.tasks.find((task) => task.id === selectedTaskId);
+  const allTasksMode = selectedTaskId === ALL_TASKS;
+  const completedAssignments = classroom.students.reduce((sum, student) => sum + countDone(classroom, student), 0);
+  const totalAssignments = classroom.students.length * classroom.tasks.length;
   const activeDone = activeTask ? classroom.students.filter((student) => isDone(classroom, student.id, activeTask.id)).length : 0;
-  const percent = classroom.students.length ? Math.round(activeDone / classroom.students.length * 100) : 0;
+  const percent = allTasksMode
+    ? (totalAssignments ? Math.round(completedAssignments / totalAssignments * 100) : 0)
+    : (classroom.students.length ? Math.round(activeDone / classroom.students.length * 100) : 0);
+  const fullyDoneStudents = classroom.students.filter((student) => progressCategory(classroom, student) === 'complete').length;
+  const partlyDoneStudents = classroom.students.filter((student) => progressCategory(classroom, student) === 'partial').length;
+  const notStartedStudents = classroom.students.filter((student) => progressCategory(classroom, student) === 'none').length;
   const incomplete = classroom.students.filter((student) => countDone(classroom, student) < classroom.tasks.length);
   const viewLabels = [
     ['current', '선택 과제'], ['table', '전체 과제표'], ['compact', '좁은 명렬표'], ['seats', '자리배치표'], ['incomplete', '미완료 학생'], ['summary', '진행 요약']
@@ -215,13 +224,13 @@ function renderTeacher() {
     </section>
     <section class="course-link-panel"><div><p class="section-kicker">${escapeHtml(course.name)} · ${escapeHtml(classroom.name)}</p><h2>학생에게 과제 링크 보내기</h2><span class="course-link-caption">교사는 이 앱에서 과목과 학급을 선택하고, 학생에게는 아래 링크나 QR을 보내주세요.</span></div><div class="course-link-item"><span>학생용 링크</span><code>${escapeHtml(studentCourseUrl())}</code><button class="button secondary small" id="copy-student-link" type="button">링크 복사</button><a class="button secondary small" href="${escapeHtml(studentCourseUrl())}" target="_blank" rel="noopener">미리보기</a></div><div class="course-qr"><button class="course-qr-trigger" id="open-large-qr" type="button" aria-label="학생 접속 QR 크게 보기"><img id="course-qr-image" src="${qrUrl}" alt="${escapeHtml(course.name)} 학생 접속 QR 코드"></button><a class="button secondary small" href="${qrUrl}&download=1" download="moabom-student-qr.svg">QR 저장</a></div><dialog class="qr-zoom-dialog" id="qr-zoom-dialog" aria-labelledby="qr-zoom-title"><div class="qr-zoom-heading"><div><p class="section-kicker">${escapeHtml(classroom.name)} · ${escapeHtml(course.name)}</p><h2 id="qr-zoom-title">학생 접속 QR 코드</h2></div><button class="qr-zoom-close" id="close-large-qr" type="button" aria-label="QR 확대 닫기">×</button></div><img class="qr-zoom-image" src="${qrUrl}" alt="스마트폰으로 스캔할 학생 접속 QR 코드"><p>학생이 휴대전화 카메라로 스캔하면 이 과목에 바로 접속합니다.</p></dialog></section>
     <section class="overview-grid" aria-label="반 진행 요약">
-      <article class="overview-card primary"><span class="overview-label">선택 과제 진행률</span><div class="overview-value">${percent}<small>%</small></div><div class="overview-caption">${activeTask ? escapeHtml(activeTask.title) : '과제를 추가해 주세요'} · ${activeDone}명 완료</div><span class="overview-watermark" aria-hidden="true"></span></article>
+      <article class="overview-card primary"><span class="overview-label">${allTasksMode ? '전체 과제 진행률' : '선택 과제 진행률'}</span><div class="overview-value">${percent}<small>%</small></div><div class="overview-caption">${allTasksMode ? `${completedAssignments} / ${totalAssignments}건 제출 완료` : `${activeTask ? escapeHtml(activeTask.title) : '과제를 추가해 주세요'} · ${activeDone}명 완료`}</div><span class="overview-watermark" aria-hidden="true"></span></article>
       <article class="overview-card"><span class="overview-label">참여 학생</span><div class="overview-value">${classroom.students.length}<small>명</small></div><div class="overview-caption">${classroom.name} 등록 인원</div></article>
       <article class="overview-card"><span class="overview-label">진행 중인 과제</span><div class="overview-value">${classroom.tasks.length}<small>개</small></div><div class="overview-caption">과제 안내 ${classroom.tasks.filter((task) => task.instructions).length}개 포함</div></article>
-      <article class="overview-card"><span class="overview-label">선택 과제 완료</span><div class="overview-value">${activeDone}<small> / ${classroom.students.length}명</small></div><div class="overview-caption">${classroom.students.length - activeDone}명 진행 중</div></article>
+      <article class="overview-card"><span class="overview-label">${allTasksMode ? '전체 완료 학생' : '선택 과제 완료'}</span><div class="overview-value">${allTasksMode ? fullyDoneStudents : activeDone}<small> / ${classroom.students.length}명</small></div><div class="overview-caption">${allTasksMode ? `${partlyDoneStudents}명 일부 완료 · ${notStartedStudents}명 미완료` : `${classroom.students.length - activeDone}명 진행 중`}</div></article>
     </section>
     <section class="view-panel">
-      <div class="panel-topline"><div class="panel-title"><span class="view-icon">${viewIcons[view]}</span><div><h2>${viewTitles[view]}</h2><p>${viewDescriptions[view]}</p></div></div>
+        <div class="panel-topline"><div class="panel-title"><span class="view-icon">${viewIcons[view]}</span><div><h2>${view === 'current' && allTasksMode ? '전체 과제 진행 현황' : viewTitles[view]}</h2><p>${view === 'current' && allTasksMode ? '과목의 모든 과제 제출 건수를 합산해 보여줘요.' : viewDescriptions[view]}</p></div></div>
         <div class="view-switcher" role="tablist" aria-label="전자칠판 보기 선택">${viewLabels.map(([key, label]) => `<button class="view-tab ${view === key ? 'active' : ''}" role="tab" aria-selected="${view === key}" data-view="${key}">${label}</button>`).join('')}</div>
       </div>
       <div class="panel-content">${renderView(classroom, incomplete)}</div>
@@ -280,8 +289,24 @@ function renderTeacher() {
   if (view === 'seats') bindSeatEditor(classroom);
 }
 
+function renderAllTasksProgress(classroom) {
+  const totalAssignments = classroom.students.length * classroom.tasks.length;
+  const completedAssignments = classroom.students.reduce((sum, student) => sum + countDone(classroom, student), 0);
+  const percent = totalAssignments ? Math.round(completedAssignments / totalAssignments * 100) : 0;
+  const categories = [
+    ['complete', '전체 완료'],
+    ['partial', '일부 완료'],
+    ['none', '미완료']
+  ];
+  return `<div class="all-progress-view"><section class="all-progress-overview"><div class="all-progress-heading"><div><span class="section-kicker">${escapeHtml(classroom.name)} / ALL TASKS</span><h3>전체 과제 진행률</h3><p>${classroom.tasks.length}개 과제 · ${classroom.students.length}명</p></div><div class="all-progress-score"><strong>${percent}<small>%</small></strong><span>전체 제출률</span></div></div><div class="all-progress-track" role="progressbar" aria-label="전체 과제 제출률" aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100"><i style="width:${percent}%"></i></div><div class="all-progress-caption">${completedAssignments} / ${totalAssignments}건 제출 완료</div></section><div class="all-progress-groups">${categories.map(([category, label]) => {
+    const students = classroom.students.filter((student) => progressCategory(classroom, student) === category);
+    return `<section class="all-progress-group progress-${category}"><h3><span class="progress-marker progress-${category}">${progressSymbol(category)}</span>${label}<small>${students.length}명</small></h3><div>${students.map((student, index) => `<div class="all-progress-student"><span class="student-number">${String(student.number || classroom.students.indexOf(student) + 1).padStart(2, '0')}</span><strong>${escapeHtml(student.name)}</strong><span>${countDone(classroom, student)} / ${classroom.tasks.length}</span></div>`).join('') || '<p class="all-progress-empty">해당 학생이 없습니다.</p>'}</div></section>`;
+  }).join('')}</div></div>`;
+}
+
 function renderView(classroom, incomplete) {
   if (view === 'current') {
+    if (selectedTaskId === ALL_TASKS) return renderAllTasksProgress(classroom);
     const task = classroom.tasks.find((entry) => entry.id === selectedTaskId);
     if (!task) return '<div class="empty-state">먼저 과제를 추가하면 선택 과제의 진행률을 확인할 수 있어요.</div>';
     const doneStudents = classroom.students.filter((student) => isDone(classroom, student.id, task.id));

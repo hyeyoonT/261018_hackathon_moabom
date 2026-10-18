@@ -2,6 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const list = document.querySelector('#student-list');
 const taskSelect = document.querySelector('#task-select');
 const channel = 'BroadcastChannel' in window ? new BroadcastChannel('moabom-live') : null;
+const ALL_TASKS = '__all__';
 let state = { classrooms: [] };
 let classId = params.get('classId') || '';
 let courseId = params.get('courseId') || '';
@@ -25,20 +26,32 @@ function render() {
     return;
   }
   courseId = course.id;
-  if (!course.tasks.some((task) => task.id === taskId)) taskId = course.tasks[0]?.id || '';
+  if (taskId !== ALL_TASKS && !course.tasks.some((task) => task.id === taskId)) taskId = course.tasks[0]?.id || ALL_TASKS;
+  const allTasksMode = taskId === ALL_TASKS;
   const task = course.tasks.find((entry) => entry.id === taskId);
-  const completed = task ? classroom.students.filter((student) => course.completions?.[student.id]?.[task.id]).length : 0;
-  const percentage = classroom.students.length ? Math.round(completed / classroom.students.length * 100) : 0;
+  const completedAssignments = classroom.students.reduce((sum, student) => sum + course.tasks.filter((entry) => course.completions?.[student.id]?.[entry.id]).length, 0);
+  const totalAssignments = classroom.students.length * course.tasks.length;
+  const completed = task ? classroom.students.filter((student) => course.completions?.[student.id]?.[task.id]).length : completedAssignments;
+  const denominator = allTasksMode ? totalAssignments : classroom.students.length;
+  const percentage = denominator ? Math.round(completed / denominator * 100) : 0;
   document.querySelector('#class-name').textContent = classroom.name;
   document.querySelector('#student-count').textContent = `${classroom.students.length}명`;
-  taskSelect.innerHTML = course.tasks.map((entry) => `<option value="${escapeHtml(entry.id)}" ${entry.id === taskId ? 'selected' : ''}>${escapeHtml(entry.title)}</option>`).join('') || '<option value="">등록된 과제가 없어요</option>';
-  taskSelect.disabled = !course.tasks.length;
-  document.querySelector('#progress-count').textContent = `${completed} / ${classroom.students.length}명`;
+  taskSelect.innerHTML = `<option value="${ALL_TASKS}" ${allTasksMode ? 'selected' : ''}>전체 과제 보기</option>${course.tasks.map((entry) => `<option value="${escapeHtml(entry.id)}" ${entry.id === taskId ? 'selected' : ''}>${escapeHtml(entry.title)}</option>`).join('')}`;
+  taskSelect.disabled = false;
+  document.querySelector('.mini-progress-top > span').textContent = allTasksMode ? '전체 과제 제출 현황' : '선택 과제 제출 현황';
+  document.querySelector('#progress-count').textContent = allTasksMode ? `${completedAssignments} / ${totalAssignments}건` : `${completed} / ${classroom.students.length}명`;
   document.querySelector('#progress-bar').style.width = `${percentage}%`;
-  document.querySelector('#progress-caption').textContent = task ? `${percentage}% 완료 · ${task.title}` : '과제를 추가하면 학생별 진행 상황을 볼 수 있어요.';
+  document.querySelector('#progress-caption').textContent = allTasksMode
+    ? `${percentage}% 전체 진행률 · ${course.tasks.length}개 과제`
+    : task ? `${percentage}% 완료 · ${task.title}` : '과제를 추가하면 학생별 진행 상황을 볼 수 있어요.';
   list.innerHTML = classroom.students.length ? classroom.students.map((student, index) => {
+    const completedTasks = course.tasks.filter((entry) => course.completions?.[student.id]?.[entry.id]).length;
+    const category = course.tasks.length && completedTasks === course.tasks.length ? 'complete' : completedTasks ? 'partial' : 'none';
     const done = Boolean(task && course.completions?.[student.id]?.[task.id]);
-    return `<article class="student-row ${done ? 'is-done' : 'is-pending'}"><span class="student-index">${String(student.number || index + 1).padStart(2, '0')}</span><span class="student-name">${escapeHtml(student.name)}</span><span class="student-status"><i>${done ? '✓' : '·'}</i>${done ? '완료' : '진행 중'}</span></article>`;
+    const label = allTasksMode ? (category === 'complete' ? '전체 완료' : category === 'partial' ? '일부 완료' : '미완료') : done ? '완료' : '진행 중';
+    const marker = allTasksMode ? (category === 'complete' ? '✓' : category === 'partial' ? '◐' : '·') : done ? '✓' : '·';
+    const rowClass = allTasksMode ? `progress-${category}` : done ? 'is-done' : 'is-pending';
+    return `<article class="student-row ${rowClass}"><span class="student-index">${String(student.number || index + 1).padStart(2, '0')}</span><span class="student-name">${escapeHtml(student.name)}</span><span class="student-status"><i>${marker}</i>${label}</span></article>`;
   }).join('') : '<div class="mini-empty">아직 등록된 학생이 없어요.</div>';
 }
 
