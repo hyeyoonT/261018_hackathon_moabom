@@ -315,6 +315,16 @@
           "id": "0545c096-1df5-4059-a2ce-2a8530500725",
           "title": "AI콘텐츠제작",
           "instructions": ""
+        },
+        {
+          "id": "cf72d452-03f4-4cf2-851b-9e1668a1a976",
+          "title": "가사완성",
+          "instructions": ""
+        },
+        {
+          "id": "b64dc255-0189-4902-8edb-05422df96dc9",
+          "title": "노래",
+          "instructions": ""
         }
       ],
       "completions": {
@@ -338,8 +348,44 @@
       "studentToken": "CoLLOeTDqY18xiuaOxPodAtCzWGAsq7n",
       "name": "인공지능기초",
       "classId": "317a7efe-9ffa-4412-8e53-804ad51925d3",
-      "tasks": [],
-      "completions": {}
+      "tasks": [
+        {
+          "id": "fae8d08d-a915-4ace-b753-74f93624c570",
+          "title": "MLM",
+          "instructions": ""
+        },
+        {
+          "id": "ee315f23-4355-4b4f-8baf-7b8d51becc25",
+          "title": "추론",
+          "instructions": ""
+        },
+        {
+          "id": "e4388b77-3fbe-4f28-ba08-a5fbd80a09a1",
+          "title": "윤리보고서",
+          "instructions": ""
+        }
+      ],
+      "completions": {
+        "1da9286b-28bb-4945-a706-1002856f0d8f": {
+          "fae8d08d-a915-4ace-b753-74f93624c570": true,
+          "ee315f23-4355-4b4f-8baf-7b8d51becc25": true,
+          "e4388b77-3fbe-4f28-ba08-a5fbd80a09a1": true
+        },
+        "c995c6d7-16e8-41df-bcc3-a468678c0934": {
+          "ee315f23-4355-4b4f-8baf-7b8d51becc25": true,
+          "e4388b77-3fbe-4f28-ba08-a5fbd80a09a1": true
+        },
+        "9bc20e44-5875-4682-bafe-bc9ae1b864a8": {
+          "ee315f23-4355-4b4f-8baf-7b8d51becc25": true
+        },
+        "8465dffd-7b71-476a-9545-3f004206af14": {
+          "ee315f23-4355-4b4f-8baf-7b8d51becc25": true,
+          "fae8d08d-a915-4ace-b753-74f93624c570": true
+        },
+        "4eabb298-94ca-49b5-b477-65549aa95061": {
+          "ee315f23-4355-4b4f-8baf-7b8d51becc25": true
+        }
+      }
     }
   ],
   "teachers": [

@@ -48,6 +48,20 @@ function countDone(classroom, student) {
   return classroom.tasks.filter((task) => isDone(classroom, student.id, task.id)).length;
 }
 
+function progressCategory(classroom, student) {
+  const completed = countDone(classroom, student);
+  if (classroom.tasks.length > 0 && completed === classroom.tasks.length) return 'complete';
+  return completed > 0 ? 'partial' : 'none';
+}
+
+function progressLabel(category) {
+  return category === 'complete' ? '전체 완료' : category === 'partial' ? '일부 완료' : '미완료';
+}
+
+function progressSymbol(category) {
+  return category === 'complete' ? '✓' : category === 'partial' ? '◐' : '·';
+}
+
 function notify(message, isError = false) {
   toast.textContent = message;
   toast.classList.toggle('error', isError);
@@ -138,7 +152,7 @@ function apiUrl(path) {
 }
 
 function printReport(classroom, course) {
-  return `<section id="print-report"><header><p>MOABOM CLASS PROGRESS REPORT</p><h1>${escapeHtml(classroom.name)} · ${escapeHtml(course.name)}</h1><span>출력일 ${new Date().toLocaleDateString('ko-KR')} · 학생 ${classroom.students.length}명 · 과제 ${course.tasks.length}개</span></header><table><thead><tr><th>번호</th><th>학생 이름</th>${course.tasks.map((task) => `<th>${escapeHtml(task.title)}</th>`).join('')}<th>완료 과제</th></tr></thead><tbody>${classroom.students.map((student, index) => `<tr><td>${escapeHtml(student.number || index + 1)}</td><td>${escapeHtml(student.name)}</td>${course.tasks.map((task) => `<td class="${isDone(classroom, student.id, task.id) ? 'print-done' : 'print-pending'}">${isDone(classroom, student.id, task.id) ? '✓ 완료' : '진행 중'}</td>`).join('')}<td>${countDone(classroom, student)} / ${course.tasks.length}</td></tr>`).join('')}</tbody></table></section>`;
+  return `<section id="print-report"><header><p>MOABOM CLASS PROGRESS REPORT</p><h1>${escapeHtml(classroom.name)} · ${escapeHtml(course.name)}</h1><span>출력일 ${new Date().toLocaleDateString('ko-KR')} · 학생 ${classroom.students.length}명 · 과제 ${course.tasks.length}개</span></header><table><thead><tr><th>번호</th><th>학생 이름</th>${course.tasks.map((task) => `<th>${escapeHtml(task.title)}</th>`).join('')}<th>전체 진행</th><th>완료 과제</th></tr></thead><tbody>${classroom.students.map((student, index) => `<tr class="progress-${progressCategory(classroom, student)}"><td>${escapeHtml(student.number || index + 1)}</td><td>${escapeHtml(student.name)}</td>${course.tasks.map((task) => `<td class="${isDone(classroom, student.id, task.id) ? 'print-done' : 'print-pending'}">${isDone(classroom, student.id, task.id) ? '✓ 완료' : '진행 중'}</td>`).join('')}<td>${progressLabel(progressCategory(classroom, student))}</td><td>${countDone(classroom, student)} / ${course.tasks.length}</td></tr>`).join('')}</tbody></table></section>`;
 }
 
 function renderNoCourse(classroom) {
