@@ -23,14 +23,22 @@ button, select { font: inherit; }
 .student-list { display: grid; gap: 5px; }
 .student-row { min-height: 43px; display: grid; grid-template-columns: 27px 1fr auto; align-items: center; gap: 8px; padding: 5px 9px; border: 1px solid #d3dfe9; border-left: 3px solid transparent; border-radius: 7px; background: #eaf1f7; transition: background .2s, border-color .2s; }
 .student-row.is-done { border-color: #a8d1b1; border-left-color: #438251; background: #d9efde; }
+.student-row.progress-complete { border-color: #a8d1b1; border-left-color: #438251; background: #d9efde; }
+.student-row.progress-partial { border-color: #e7ca78; border-left-color: #c49a33; background: #fff0ca; }
 .student-index { color: #92998f; font: 9px "DM Mono", monospace; }
 .student-name { overflow: hidden; font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
 .student-status { display: inline-flex; align-items: center; gap: 5px; color: #9a794c; font-size: 9px; font-weight: 700; }
 .student-row.is-pending .student-status { color: #52677b; }
 .student-row.is-done .student-status { color: #24583a; }
+.student-row.progress-none .student-status { color: #52677b; }
+.student-row.progress-complete .student-status { color: #24583a; }
+.student-row.progress-partial .student-status { color: #73571b; }
 .student-status i { width: 17px; height: 17px; display: grid; place-items: center; border-radius: 50%; background: #f1eddf; font-size: 11px; font-style: normal; }
 .student-row.is-pending .student-status i { color: #52677b; background: #dce6ef; }
 .student-row.is-done .student-status i { color: white; background: #31684f; }
+.student-row.progress-none .student-status i { color: #748392; background: transparent; }
+.student-row.progress-complete .student-status i { color: white; background: #31684f; }
+.student-row.progress-partial .student-status i { color: #503c0c; background: #e6c35d; }
 .mini-empty { padding: 25px 12px; color: var(--muted); text-align: center; font-size: 11px; }
 .mini-footer { min-height: 37px; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; border-top: 1px solid #dfe1d8; color: #889087; font: 8px "DM Mono", monospace; letter-spacing: .04em; }
 .mini-footer span:first-child { display: flex; align-items: center; gap: 6px; }
