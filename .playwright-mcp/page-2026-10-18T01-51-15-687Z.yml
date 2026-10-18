@@ -1,0 +1,49 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "모아봄 홈" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e10]: 모아봄.
+      - generic [ref=e11]:
+        - generic [ref=e12]: CLASSROOM / 2026
+        - generic [ref=e14]: 6학년 2반
+      - generic [ref=e15]:
+        - generic [ref=e16]: 실시간 연결
+        - group "화면 역할 선택" [ref=e18]:
+          - button "교사 화면" [ref=e19] [cursor=pointer]
+          - button "학생 화면" [active] [pressed] [ref=e20] [cursor=pointer]
+          - button "학교 관리자" [ref=e21] [cursor=pointer]
+    - main [ref=e22]:
+      - generic [ref=e247]:
+        - generic [ref=e248]:
+          - generic [ref=e249]:
+            - paragraph [ref=e250]: 6학년 2반 / YOUR CHECKLIST
+            - heading "안녕하세요, 김하윤님" [level=1] [ref=e251]
+            - paragraph [ref=e252]: 과제를 마치면 완료 버튼을 눌러 진행 상황을 알려주세요.
+          - generic [ref=e253]:
+            - generic [ref=e254]: 내 과제 진행
+            - strong [ref=e255]: 2 / 3 완료
+        - generic [ref=e256]:
+          - article [ref=e257]:
+            - generic [ref=e258]: "01"
+            - generic [ref=e259]:
+              - heading "우리 동네 생태 지도" [level=2] [ref=e260]
+              - paragraph [ref=e261]: 학교 주변 생물을 조사하고 지도에 표시해요.
+            - button "완료했어요" [pressed] [ref=e262] [cursor=pointer]
+          - article [ref=e263]:
+            - generic [ref=e264]: "02"
+            - generic [ref=e265]:
+              - heading "생물 관찰 기록" [level=2] [ref=e266]
+              - paragraph [ref=e267]: 관찰한 생물의 특징을 세 가지 적어보세요.
+            - button "완료했어요" [pressed] [ref=e268] [cursor=pointer]
+          - article [ref=e269]:
+            - generic [ref=e270]: "03"
+            - generic [ref=e271]:
+              - heading "모둠 발표 자료" [level=2] [ref=e272]
+              - paragraph [ref=e273]: 과제를 마친 뒤 완료 버튼을 눌러주세요.
+            - button "[완료] 표시" [ref=e274] [cursor=pointer]
+        - button "다른 학생으로 참여" [ref=e275] [cursor=pointer]
+    - contentinfo [ref=e181]:
+      - generic [ref=e182]: MOABOM CLASSROOM TOOLS
+      - generic [ref=e183]: 모든 기기에 최신 상태가 반영됩니다
+  - status

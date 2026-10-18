@@ -1,0 +1,9 @@
+[     436ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[    1103ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/favicon.ico:0
+[   53198ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[  287467ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  350473ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  413477ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  476479ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  539485ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  602492ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0

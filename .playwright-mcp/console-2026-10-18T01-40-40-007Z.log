@@ -1,0 +1,9 @@
+[      49ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[  117775ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  180775ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  243778ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  306782ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  369788ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  432789ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  495792ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0
+[  558792ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0

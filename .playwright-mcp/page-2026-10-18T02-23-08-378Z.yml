@@ -1,0 +1,207 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "모아봄 홈" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e10]: 모아봄
+      - generic [ref=e11]:
+        - generic [ref=e12]: CLASSROOM / 2026
+        - generic [ref=e14]: 6학년 2반 · 기본 과목
+      - generic [ref=e15]:
+        - generic [ref=e16]: 실시간 연결
+        - group "화면 역할 선택" [ref=e18]:
+          - button "교사 화면" [pressed] [ref=e19] [cursor=pointer]
+          - button "학생 화면" [ref=e20] [cursor=pointer]
+          - button "학교 관리자" [ref=e21] [cursor=pointer]
+    - main [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - paragraph [ref=e25]: TEACHER BOARD / LIVE
+          - heading "수업 진행 현황" [level=1] [ref=e26]
+          - paragraph [ref=e27]: 학생들의 과제 진행을 한눈에 살펴보세요.
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]: 과목
+            - combobox "과목 선택" [ref=e31] [cursor=pointer]:
+              - option "기본 과목" [selected]
+              - option "정보"
+          - generic [ref=e32]:
+            - generic [ref=e33]: 학급
+            - combobox "학급 선택" [ref=e34] [cursor=pointer]:
+              - option "6학년 2반" [selected]
+              - option "2-1"
+          - generic [ref=e35]:
+            - generic [ref=e36]: 현재 확인할 과제 선택
+            - combobox "현재 확인할 과제 선택" [ref=e37] [cursor=pointer]:
+              - option "우리 동네 생태 지도" [selected]
+              - option "생물 관찰 기록"
+              - option "모둠 발표 자료"
+          - generic "학생에게 알려줄 반 참여 코드" [ref=e38]: 반 코드 62B
+          - button "과목 추가" [ref=e39] [cursor=pointer]:
+            - img [ref=e40]
+            - text: 과목 추가
+          - button "반 추가" [ref=e42] [cursor=pointer]:
+            - img [ref=e43]
+            - text: 반 추가
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: 기본 과목 · 6학년 2반
+          - heading "학생에게 과제 링크 보내기" [level=2] [ref=e48]
+          - generic [ref=e49]: 교사는 이 앱에서 과목과 학급을 선택하고, 학생에게는 아래 링크나 QR을 보내주세요.
+        - generic [ref=e50]:
+          - generic [ref=e51]: 학생용 링크
+          - code [ref=e52]: https://6eodyrmxg7tqf2zh.jitda.io/?course=3494fa28-f55a-4681-911c-7a1a4d22ef73&role=student
+          - button "링크 복사" [ref=e53] [cursor=pointer]
+          - link "미리보기" [ref=e54] [cursor=pointer]:
+            - /url: https://6eodyrmxg7tqf2zh.jitda.io/?course=3494fa28-f55a-4681-911c-7a1a4d22ef73&role=student
+        - generic [ref=e55]:
+          - img "기본 과목 학생 접속 QR 코드" [ref=e56]
+          - link "QR 저장" [ref=e57] [cursor=pointer]:
+            - /url: /api/course-qr?courseId=3494fa28-f55a-4681-911c-7a1a4d22ef73&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io&download=1
+      - region "반 진행 요약" [ref=e58]:
+        - article [ref=e59]:
+          - generic [ref=e60]: 선택 과제 진행률
+          - generic [ref=e61]: 92%
+          - generic [ref=e62]: 우리 동네 생태 지도 · 12명 완료
+        - article [ref=e64]:
+          - generic [ref=e65]: 참여 학생
+          - generic [ref=e66]: 13명
+          - generic [ref=e67]: 6학년 2반 등록 인원
+        - article [ref=e68]:
+          - generic [ref=e69]: 진행 중인 과제
+          - generic [ref=e70]: 3개
+          - generic [ref=e71]: 과제 안내 2개 포함
+        - article [ref=e72]:
+          - generic [ref=e73]: 선택 과제 완료
+          - generic [ref=e74]: 12 / 13명
+          - generic [ref=e75]: 1명 진행 중
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - img [ref=e80]
+            - generic [ref=e83]:
+              - heading "선택한 과제 진행 현황" [level=2] [ref=e84]
+              - paragraph [ref=e85]: 선택한 과제 하나만 집중해서 확인해요.
+          - tablist "전자칠판 보기 선택" [ref=e86]:
+            - tab "선택 과제" [selected] [ref=e87] [cursor=pointer]
+            - tab "전체 과제표" [ref=e88] [cursor=pointer]
+            - tab "좁은 명렬표" [ref=e89] [cursor=pointer]
+            - tab "자리배치표" [ref=e90] [cursor=pointer]
+            - tab "미완료 학생" [ref=e91] [cursor=pointer]
+            - tab "진행 요약" [ref=e92] [cursor=pointer]
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - text: 현재 선택 과제
+              - heading "우리 동네 생태 지도" [level=3] [ref=e96]
+              - paragraph [ref=e97]: 학교 주변 생물을 조사하고 지도에 표시해요.
+            - generic [ref=e98]:
+              - strong [ref=e99]: 12 / 13
+              - generic [ref=e100]: 학생 완료
+          - generic [ref=e101]:
+            - generic [ref=e102]:
+              - heading "✓ 완료 12명" [level=3] [ref=e103]:
+                - generic [ref=e104]: ✓
+                - text: 완료
+                - generic [ref=e105]: 12명
+              - generic [ref=e106]:
+                - generic [ref=e107]:
+                  - generic [ref=e108]: ✓
+                  - generic [ref=e109]: "01"
+                  - strong [ref=e110]: 김하윤
+                  - generic [ref=e111]: 완료
+                - generic [ref=e112]:
+                  - generic [ref=e113]: ✓
+                  - generic [ref=e114]: "02"
+                  - strong [ref=e115]: 이도윤
+                  - generic [ref=e116]: 완료
+                - generic [ref=e117]:
+                  - generic [ref=e118]: ✓
+                  - generic [ref=e119]: "03"
+                  - strong [ref=e120]: 박서아
+                  - generic [ref=e121]: 완료
+                - generic [ref=e122]:
+                  - generic [ref=e123]: ✓
+                  - generic [ref=e124]: "04"
+                  - strong [ref=e125]: 최지호
+                  - generic [ref=e126]: 완료
+                - generic [ref=e127]:
+                  - generic [ref=e128]: ✓
+                  - generic [ref=e129]: "05"
+                  - strong [ref=e130]: 정유나
+                  - generic [ref=e131]: 완료
+                - generic [ref=e132]:
+                  - generic [ref=e133]: ✓
+                  - generic [ref=e134]: "06"
+                  - strong [ref=e135]: 강민준
+                  - generic [ref=e136]: 완료
+                - generic [ref=e137]:
+                  - generic [ref=e138]: ✓
+                  - generic [ref=e139]: "07"
+                  - strong [ref=e140]: 윤채원
+                  - generic [ref=e141]: 완료
+                - generic [ref=e142]:
+                  - generic [ref=e143]: ✓
+                  - generic [ref=e144]: "08"
+                  - strong [ref=e145]: 장시우
+                  - generic [ref=e146]: 완료
+                - generic [ref=e147]:
+                  - generic [ref=e148]: ✓
+                  - generic [ref=e149]: "09"
+                  - strong [ref=e150]: 임서윤
+                  - generic [ref=e151]: 완료
+                - generic [ref=e152]:
+                  - generic [ref=e153]: ✓
+                  - generic [ref=e154]: "10"
+                  - strong [ref=e155]: 한지안
+                  - generic [ref=e156]: 완료
+                - generic [ref=e157]:
+                  - generic [ref=e158]: ✓
+                  - generic [ref=e159]: "11"
+                  - strong [ref=e160]: 오준서
+                  - generic [ref=e161]: 완료
+                - generic [ref=e162]:
+                  - generic [ref=e163]: ✓
+                  - generic [ref=e164]: "12"
+                  - strong [ref=e165]: 서예린
+                  - generic [ref=e166]: 완료
+            - generic [ref=e167]:
+              - heading "· 진행 중 1명" [level=3] [ref=e168]:
+                - generic [ref=e169]: ·
+                - text: 진행 중
+                - generic [ref=e170]: 1명
+              - generic [ref=e172]:
+                - generic [ref=e173]: ·
+                - generic [ref=e174]: "13"
+                - strong [ref=e175]: 전혜윤
+                - generic [ref=e176]: 진행 중
+        - generic [ref=e177]:
+          - generic [ref=e178]: "마지막 반영: 방금 전 · 여러 기기에서 자동으로 동기화됩니다"
+          - generic [ref=e179]:
+            - button "미니명렬표 팝업" [ref=e180] [cursor=pointer]:
+              - img [ref=e181]
+              - text: 미니명렬표 팝업
+            - button "CSV 파일 저장" [ref=e184] [cursor=pointer]
+            - button "인쇄 / PDF" [ref=e185] [cursor=pointer]
+            - button "과제 추가" [ref=e186] [cursor=pointer]:
+              - img [ref=e187]
+              - text: 과제 추가
+      - generic [ref=e189]:
+        - generic [ref=e190]:
+          - generic [ref=e191]:
+            - strong [ref=e192]: 학생 명단 한 번에 추가
+            - generic [ref=e193]: .xlsx 또는 .csv · 첫 번째 시트의 이름 열을 읽어요
+          - generic [ref=e194] [cursor=pointer]: 엑셀 파일 업로드
+          - button "엑셀 파일 업로드" [ref=e195]
+        - generic [ref=e196]:
+          - generic [ref=e197]: 학생 한 명 추가
+          - textbox "학생 한 명 추가" [ref=e198]:
+            - /placeholder: 학생 이름
+          - button "추가" [ref=e199] [cursor=pointer]:
+            - img [ref=e200]
+            - text: 추가
+          - button "학교 명단에서 가져오기" [ref=e202] [cursor=pointer]
+    - contentinfo [ref=e203]:
+      - generic [ref=e204]: MOABOM CLASSROOM TOOLS
+      - generic [ref=e205]: 모든 기기에 최신 상태가 반영됩니다
+  - status

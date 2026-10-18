@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1d2c2b">
+  <title>미니 명렬표 | 모아봄</title>
+  <link rel="stylesheet" href="mini-roster.css">
+</head>
+<body>
+  <main class="mini-app">
+    <header class="mini-header">
+      <button id="close-window" class="close-button" type="button" aria-label="팝업 닫기">×</button>
+    </header>
+    <section class="mini-heading">
+      <p>CLASSROOM / LIVE</p>
+      <h1 id="class-name">반 진행 현황</h1>
+      <label class="mini-task-label" for="task-select">현재 확인 과제</label>
+      <select id="task-select" aria-label="진행률을 확인할 과제"></select>
+    </section>
+    <section class="mini-progress" aria-live="polite">
+      <div class="mini-progress-top"><span>과제 완료 현황</span><strong id="progress-count">0 / 0명</strong></div>
+      <div class="mini-track"><i id="progress-bar"></i></div>
+      <div id="progress-caption" class="mini-progress-caption">학생별 상태가 실시간으로 바뀝니다</div>
+    </section>
+    <section class="mini-list-section">
+      <div class="mini-list-heading"><h2>학생 명렬표</h2><span id="student-count">0명</span></div>
+      <div id="student-list" class="student-list"><div class="mini-empty">명단을 불러오고 있어요.</div></div>
+    </section>
+    <footer class="mini-footer"><span><i></i> 실시간 동기화 중</span><span>MOABOM CLASSROOM</span></footer>
+  </main>
+  <script src="mini-roster.js"></script>
+</body>
+</html>

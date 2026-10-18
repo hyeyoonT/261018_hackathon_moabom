@@ -1,0 +1,12 @@
+[      65ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[ 4374036ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[ 4374656ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[ 5100982ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[ 5101240ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[ 5101543ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[ 5101767ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[ 5120119ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[ 5120290ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[ 5120631ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[ 5752731ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[ 5753628ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1

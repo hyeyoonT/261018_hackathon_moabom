@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ee">
+  <title>모아봄 | 수업 진행 보드</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar" hidden>
+      <div class="top-actions">
+        <span id="teacher-account" class="teacher-account" hidden></span>
+        <button class="button secondary small teacher-recovery" id="teacher-recovery" type="button" hidden>복구 코드</button>
+        <div class="role-switch" role="group" aria-label="화면 역할 선택" hidden>
+          <button class="role-button active" data-role="teacher" aria-pressed="true">교사 화면</button>
+          <button class="role-button" data-role="student" aria-pressed="false">학생 화면</button>
+        </div>
+        <button class="button secondary small teacher-logout" id="teacher-logout" type="button" hidden>로그아웃</button>
+      </div>
+    </header>
+
+    <main id="app" class="main-content" aria-live="polite">
+      <div class="loading-state">수업 현황을 불러오고 있어요...</div>
+    </main>
+
+    <footer class="app-footer">
+      <span class="footer-brand">MOABOM CLASSROOM TOOLS <span class="footer-byline">(by raonpandaT <img class="byline-panda" src="/ai-images/moabom-panda.png" alt="" aria-hidden="true">)</span></span>
+      <span id="footer-status">모든 기기에 최신 상태가 반영됩니다</span>
+    </footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

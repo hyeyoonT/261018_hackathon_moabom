@@ -1,0 +1,226 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "모아봄 홈" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e10]: 모아봄.
+      - generic [ref=e11]:
+        - generic [ref=e12]: CLASSROOM / 2026
+        - generic [ref=e14]: 6학년 2반
+      - generic [ref=e15]:
+        - generic [ref=e16]: 실시간 연결
+        - group "화면 역할 선택" [ref=e18]:
+          - button "교사 화면" [pressed] [ref=e19] [cursor=pointer]
+          - button "학생 화면" [ref=e20] [cursor=pointer]
+    - main [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - paragraph [ref=e24]: TEACHER BOARD / LIVE
+          - heading "수업 진행 현황" [level=1] [ref=e25]
+          - paragraph [ref=e26]: 학생들의 과제 진행을 한눈에 살펴보세요.
+        - generic [ref=e27]:
+          - combobox "반 선택" [ref=e29] [cursor=pointer]:
+            - option "6학년 2반" [selected]
+          - generic "학생에게 알려줄 반 참여 코드" [ref=e30]: 참여 코드 62B
+          - button "반 추가" [ref=e31] [cursor=pointer]:
+            - img [ref=e32]
+            - text: 반 추가
+      - region "반 진행 요약" [ref=e34]:
+        - article [ref=e35]:
+          - generic [ref=e36]: 전체 진행률
+          - generic [ref=e37]: 61%
+          - generic [ref=e38]: 전체 과제 중 22개 완료
+        - article [ref=e40]:
+          - generic [ref=e41]: 참여 학생
+          - generic [ref=e42]: 12명
+          - generic [ref=e43]: 6학년 2반 등록 인원
+        - article [ref=e44]:
+          - generic [ref=e45]: 진행 중인 과제
+          - generic [ref=e46]: 3개
+          - generic [ref=e47]: 과제 안내 2개 포함
+        - article [ref=e48]:
+          - generic [ref=e49]: 모든 과제 완료
+          - generic [ref=e50]: 3명
+          - generic [ref=e51]: 9명 진행 중
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - img [ref=e56]
+            - generic [ref=e59]:
+              - heading "학생별 과제 현황" [level=2] [ref=e60]
+              - paragraph [ref=e61]: 학생마다 어떤 과제를 마쳤는지 확인해요.
+          - tablist "전자칠판 보기 선택" [ref=e62]:
+            - tab "과제 진행표" [selected] [ref=e63] [cursor=pointer]
+            - tab "좁은 명렬표" [ref=e64] [cursor=pointer]
+            - tab "자리배치표" [ref=e65] [cursor=pointer]
+            - tab "미완료 학생" [ref=e66] [cursor=pointer]
+            - tab "진행 요약" [ref=e67] [cursor=pointer]
+        - table [ref=e70]:
+          - rowgroup [ref=e71]:
+            - row "학생 / 진행 과제 우리 동네 생태 지도 생물 관찰 기록 모둠 발표 자료 완료 수" [ref=e72]:
+              - columnheader "학생 / 진행 과제" [ref=e73]
+              - columnheader "우리 동네 생태 지도" [ref=e74]
+              - columnheader "생물 관찰 기록" [ref=e75]
+              - columnheader "모둠 발표 자료" [ref=e76]
+              - columnheader "완료 수" [ref=e77]
+          - rowgroup [ref=e78]:
+            - row "01 김하윤 완료 완료 진행 중 2 / 3" [ref=e79]:
+              - cell "01 김하윤" [ref=e80]:
+                - generic [ref=e81]:
+                  - generic [ref=e82]: "01"
+                  - text: 김하윤
+              - cell "완료" [ref=e83]:
+                - generic [ref=e84]: 완료
+              - cell "완료" [ref=e86]:
+                - generic [ref=e87]: 완료
+              - cell "진행 중" [ref=e89]:
+                - generic [ref=e90]: 진행 중
+              - cell "2 / 3" [ref=e92]
+            - row "02 이도윤 완료 진행 중 진행 중 1 / 3" [ref=e93]:
+              - cell "02 이도윤" [ref=e94]:
+                - generic [ref=e95]:
+                  - generic [ref=e96]: "02"
+                  - text: 이도윤
+              - cell "완료" [ref=e97]:
+                - generic [ref=e98]: 완료
+              - cell "진행 중" [ref=e100]:
+                - generic [ref=e101]: 진행 중
+              - cell "진행 중" [ref=e103]:
+                - generic [ref=e104]: 진행 중
+              - cell "1 / 3" [ref=e106]
+            - row "03 박서아 완료 완료 완료 3 / 3" [ref=e107]:
+              - cell "03 박서아" [ref=e108]:
+                - generic [ref=e109]:
+                  - generic [ref=e110]: "03"
+                  - text: 박서아
+              - cell "완료" [ref=e111]:
+                - generic [ref=e112]: 완료
+              - cell "완료" [ref=e114]:
+                - generic [ref=e115]: 완료
+              - cell "완료" [ref=e117]:
+                - generic [ref=e118]: 완료
+              - cell "3 / 3" [ref=e120]
+            - row "04 최지호 완료 완료 진행 중 2 / 3" [ref=e121]:
+              - cell "04 최지호" [ref=e122]:
+                - generic [ref=e123]:
+                  - generic [ref=e124]: "04"
+                  - text: 최지호
+              - cell "완료" [ref=e125]:
+                - generic [ref=e126]: 완료
+              - cell "완료" [ref=e128]:
+                - generic [ref=e129]: 완료
+              - cell "진행 중" [ref=e131]:
+                - generic [ref=e132]: 진행 중
+              - cell "2 / 3" [ref=e134]
+            - row "05 정유나 완료 진행 중 진행 중 1 / 3" [ref=e135]:
+              - cell "05 정유나" [ref=e136]:
+                - generic [ref=e137]:
+                  - generic [ref=e138]: "05"
+                  - text: 정유나
+              - cell "완료" [ref=e139]:
+                - generic [ref=e140]: 완료
+              - cell "진행 중" [ref=e142]:
+                - generic [ref=e143]: 진행 중
+              - cell "진행 중" [ref=e145]:
+                - generic [ref=e146]: 진행 중
+              - cell "1 / 3" [ref=e148]
+            - row "06 강민준 완료 완료 완료 3 / 3" [ref=e149]:
+              - cell "06 강민준" [ref=e150]:
+                - generic [ref=e151]:
+                  - generic [ref=e152]: "06"
+                  - text: 강민준
+              - cell "완료" [ref=e153]:
+                - generic [ref=e154]: 완료
+              - cell "완료" [ref=e156]:
+                - generic [ref=e157]: 완료
+              - cell "완료" [ref=e159]:
+                - generic [ref=e160]: 완료
+              - cell "3 / 3" [ref=e162]
+            - row "07 윤채원 완료 진행 중 진행 중 1 / 3" [ref=e163]:
+              - cell "07 윤채원" [ref=e164]:
+                - generic [ref=e165]:
+                  - generic [ref=e166]: "07"
+                  - text: 윤채원
+              - cell "완료" [ref=e167]:
+                - generic [ref=e168]: 완료
+              - cell "진행 중" [ref=e170]:
+                - generic [ref=e171]: 진행 중
+              - cell "진행 중" [ref=e173]:
+                - generic [ref=e174]: 진행 중
+              - cell "1 / 3" [ref=e176]
+            - row "08 장시우 완료 완료 진행 중 2 / 3" [ref=e177]:
+              - cell "08 장시우" [ref=e178]:
+                - generic [ref=e179]:
+                  - generic [ref=e180]: "08"
+                  - text: 장시우
+              - cell "완료" [ref=e181]:
+                - generic [ref=e182]: 완료
+              - cell "완료" [ref=e184]:
+                - generic [ref=e185]: 완료
+              - cell "진행 중" [ref=e187]:
+                - generic [ref=e188]: 진행 중
+              - cell "2 / 3" [ref=e190]
+            - row "09 임서윤 완료 완료 완료 3 / 3" [ref=e191]:
+              - cell "09 임서윤" [ref=e192]:
+                - generic [ref=e193]:
+                  - generic [ref=e194]: "09"
+                  - text: 임서윤
+              - cell "완료" [ref=e195]:
+                - generic [ref=e196]: 완료
+              - cell "완료" [ref=e198]:
+                - generic [ref=e199]: 완료
+              - cell "완료" [ref=e201]:
+                - generic [ref=e202]: 완료
+              - cell "3 / 3" [ref=e204]
+            - row "10 한지안 완료 진행 중 진행 중 1 / 3" [ref=e205]:
+              - cell "10 한지안" [ref=e206]:
+                - generic [ref=e207]:
+                  - generic [ref=e208]: "10"
+                  - text: 한지안
+              - cell "완료" [ref=e209]:
+                - generic [ref=e210]: 완료
+              - cell "진행 중" [ref=e212]:
+                - generic [ref=e213]: 진행 중
+              - cell "진행 중" [ref=e215]:
+                - generic [ref=e216]: 진행 중
+              - cell "1 / 3" [ref=e218]
+            - row "11 오준서 완료 완료 진행 중 2 / 3" [ref=e219]:
+              - cell "11 오준서" [ref=e220]:
+                - generic [ref=e221]:
+                  - generic [ref=e222]: "11"
+                  - text: 오준서
+              - cell "완료" [ref=e223]:
+                - generic [ref=e224]: 완료
+              - cell "완료" [ref=e226]:
+                - generic [ref=e227]: 완료
+              - cell "진행 중" [ref=e229]:
+                - generic [ref=e230]: 진행 중
+              - cell "2 / 3" [ref=e232]
+            - row "12 서예린 완료 진행 중 진행 중 1 / 3" [ref=e233]:
+              - cell "12 서예린" [ref=e234]:
+                - generic [ref=e235]:
+                  - generic [ref=e236]: "12"
+                  - text: 서예린
+              - cell "완료" [ref=e237]:
+                - generic [ref=e238]: 완료
+              - cell "진행 중" [ref=e240]:
+                - generic [ref=e241]: 진행 중
+              - cell "진행 중" [ref=e243]:
+                - generic [ref=e244]: 진행 중
+              - cell "1 / 3" [ref=e246]
+        - generic [ref=e247]:
+          - generic [ref=e248]: "마지막 반영: 방금 전 · 여러 기기에서 자동으로 동기화됩니다"
+          - button "과제 추가" [ref=e249] [cursor=pointer]:
+            - img [ref=e250]
+            - text: 과제 추가
+      - generic [ref=e252]:
+        - generic [ref=e253]: 명단에 학생 추가
+        - textbox "명단에 학생 추가" [ref=e254]:
+          - /placeholder: 학생 이름
+        - button "추가" [ref=e255] [cursor=pointer]:
+          - img [ref=e256]
+          - text: 추가
+    - contentinfo [ref=e258]:
+      - generic [ref=e259]: MOABOM CLASSROOM TOOLS
+      - generic [ref=e260]: 모든 기기에 최신 상태가 반영됩니다
+  - status

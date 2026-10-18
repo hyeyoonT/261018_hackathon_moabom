@@ -1,0 +1,2 @@
+[      45ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[   60344ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events:0

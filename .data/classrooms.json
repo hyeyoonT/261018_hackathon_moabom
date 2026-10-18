@@ -1,0 +1,15 @@
+{
+  "classrooms": [],
+  "courses": [],
+  "teachers": [
+    {
+      "id": "09501713-0d82-41e3-9b6d-450e2ebbfda0",
+      "displayName": "라온",
+      "email": "raon@sen.kr",
+      "passwordSalt": "4cfe104f62c50ad976798640b9e9726a",
+      "passwordHash": "e8dafb3cf203649453326fdcad0aea64972d7249cda7e0ee3b8ac418582029da366abd3908ce1a4265281aa8161cc867b3ffbbd6907e478855136900b841baea",
+      "recoveryHash": "822fbf23a2d8c97d92b1dcd521167081b585f6771db612849d51bd6cdf549c89"
+    }
+  ],
+  "guests": []
+}

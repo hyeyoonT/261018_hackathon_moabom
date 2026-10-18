@@ -1,0 +1,3 @@
+[      32ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[   61936ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events?courseId=3494fa28-f55a-4681-911c-7a1a4d22ef73:0
+[  127543ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://6eodyrmxg7tqf2zh.jitda.io/api/events?courseId=3494fa28-f55a-4681-911c-7a1a4d22ef73:0

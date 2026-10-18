@@ -1,0 +1,35 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "모아봄 홈" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e10]: 모아봄
+      - generic [ref=e11]:
+        - generic [ref=e12]: CLASSROOM / 2026
+        - generic [ref=e14]: 6학년 2반
+      - generic [ref=e16]: 실시간 연결
+    - main [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - paragraph [ref=e22]: MOABOM / TEACHER SPACE
+            - heading "선생님만의 수업 공간" [level=1] [ref=e23]
+          - paragraph [ref=e24]: 같은 계정으로 로그인하면 교실 PC와 교무실 PC에서 내 학급과 과제를 이어서 확인할 수 있어요.
+        - generic [ref=e25]:
+          - heading "내 수업에 로그인" [level=2] [ref=e26]
+          - paragraph [ref=e27]: 가입할 때 사용한 이메일과 비밀번호로 접속하세요.
+          - tablist "로그인 또는 가입 선택" [ref=e28]:
+            - tab "로그인" [selected] [ref=e29] [cursor=pointer]
+            - tab "계정 만들기" [ref=e30] [cursor=pointer]
+          - generic [ref=e31]:
+            - generic [ref=e32]:
+              - generic [ref=e33]: 이메일
+              - textbox "이메일" [ref=e34]
+            - generic [ref=e35]:
+              - generic [ref=e36]: 비밀번호
+              - textbox "비밀번호" [ref=e37]
+            - button "로그인" [ref=e38] [cursor=pointer]
+    - contentinfo [ref=e39]:
+      - generic [ref=e40]: MOABOM CLASSROOM TOOLS
+      - generic [ref=e41]: 모든 기기에 최신 상태가 반영됩니다
+  - status

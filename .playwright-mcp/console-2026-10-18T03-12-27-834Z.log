@@ -1,0 +1,31 @@
+[     124ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[   18919ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[   19252ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   19534ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   19764ms] [ERROR] Pattern attribute value [A-Za-z0-9-]{3,12} is not a valid regular expression: Uncaught SyntaxError: Invalid regular expression: /[A-Za-z0-9-]{3,12}/v: Invalid character class @ https://6eodyrmxg7tqf2zh.jitda.io/:0
+[   19836ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   22446ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   25448ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   28455ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   31459ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   34464ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   37466ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   40472ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   43479ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   46486ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   49490ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   52497ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   55500ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   58415ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[   72971ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[   73233ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   73515ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   73865ms] [ERROR] Pattern attribute value [A-Za-z0-9-]{3,12} is not a valid regular expression: Uncaught SyntaxError: Invalid regular expression: /[A-Za-z0-9-]{3,12}/v: Invalid character class @ https://6eodyrmxg7tqf2zh.jitda.io/:0
+[   73941ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course-1&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[   74830ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[  326732ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1
+[  326950ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[  327138ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[  327425ms] [ERROR] Pattern attribute value [A-Za-z0-9-]{3,12} is not a valid regular expression: Uncaught SyntaxError: Invalid regular expression: /[A-Za-z0-9-]{3,12}/v: Invalid character class @ https://6eodyrmxg7tqf2zh.jitda.io/:0
+[  327522ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://6eodyrmxg7tqf2zh.jitda.io/api/course-qr?courseId=mock-course&origin=https%3A%2F%2F6eodyrmxg7tqf2zh.jitda.io:0
+[  328250ms] [INFO] [preview-bridge] v1.1.0 @ https://6eodyrmxg7tqf2zh.jitda.io/__preview-bridge.js:1

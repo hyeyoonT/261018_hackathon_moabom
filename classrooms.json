@@ -1,0 +1,156 @@
+{
+  "classrooms": [
+    {
+      "id": "class-1",
+      "name": "6학년 2반",
+      "joinCode": "62B",
+      "rows": 5,
+      "cols": 4,
+      "students": [
+        {
+          "id": "student-1",
+          "name": "김하윤",
+          "seat": 0
+        },
+        {
+          "id": "student-2",
+          "name": "이도윤",
+          "seat": 4
+        },
+        {
+          "id": "student-3",
+          "name": "박서아",
+          "seat": 15
+        },
+        {
+          "id": "student-4",
+          "name": "최지호",
+          "seat": 3
+        },
+        {
+          "id": "student-5",
+          "name": "정유나",
+          "seat": 8
+        },
+        {
+          "id": "student-6",
+          "name": "강민준",
+          "seat": 5
+        },
+        {
+          "id": "student-7",
+          "name": "윤채원",
+          "seat": 6
+        },
+        {
+          "id": "student-8",
+          "name": "장시우",
+          "seat": 7
+        },
+        {
+          "id": "student-9",
+          "name": "임서윤",
+          "seat": 1
+        },
+        {
+          "id": "student-10",
+          "name": "한지안",
+          "seat": 10
+        },
+        {
+          "id": "student-11",
+          "name": "오준서",
+          "seat": 19
+        },
+        {
+          "id": "student-12",
+          "name": "서예린",
+          "seat": 11
+        },
+        {
+          "id": "f7d4a75b-4276-45fe-910c-580d603cff85",
+          "name": "전혜윤",
+          "seat": 2
+        }
+      ],
+      "tasks": [
+        {
+          "id": "task-1",
+          "title": "우리 동네 생태 지도",
+          "instructions": "학교 주변 생물을 조사하고 지도에 표시해요."
+        },
+        {
+          "id": "task-2",
+          "title": "생물 관찰 기록",
+          "instructions": "관찰한 생물의 특징을 세 가지 적어보세요."
+        },
+        {
+          "id": "task-3",
+          "title": "모둠 발표 자료",
+          "instructions": ""
+        }
+      ],
+      "completions": {
+        "student-1": {
+          "task-1": true,
+          "task-2": true
+        },
+        "student-2": {
+          "task-1": true
+        },
+        "student-3": {
+          "task-1": true,
+          "task-2": true,
+          "task-3": true
+        },
+        "student-4": {
+          "task-1": true,
+          "task-2": true
+        },
+        "student-5": {
+          "task-1": true
+        },
+        "student-6": {
+          "task-1": true,
+          "task-2": true,
+          "task-3": true
+        },
+        "student-7": {
+          "task-1": true
+        },
+        "student-8": {
+          "task-1": true,
+          "task-2": true
+        },
+        "student-9": {
+          "task-1": true,
+          "task-2": true,
+          "task-3": true
+        },
+        "student-10": {
+          "task-1": true
+        },
+        "student-11": {
+          "task-1": true,
+          "task-2": true
+        },
+        "student-12": {
+          "task-1": true
+        },
+        "f7d4a75b-4276-45fe-910c-580d603cff85": {
+          "task-2": true
+        }
+      }
+    },
+    {
+      "id": "be038d20-6a14-4c60-9f3c-75c89c2547b8",
+      "name": "2-1",
+      "joinCode": "E5AF",
+      "rows": 4,
+      "cols": 5,
+      "students": [],
+      "tasks": [],
+      "completions": {}
+    }
+  ]
+}
