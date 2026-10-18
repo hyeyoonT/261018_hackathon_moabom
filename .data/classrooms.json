@@ -23,25 +23,25 @@
           "id": "040780ad-fc92-40f4-aaf1-71eb4d52b225",
           "name": "김가가",
           "number": "1",
-          "seat": 0
+          "seat": 3
         },
         {
           "id": "1da9286b-28bb-4945-a706-1002856f0d8f",
           "name": "김나나",
           "number": "2",
-          "seat": 1
+          "seat": 7
         },
         {
           "id": "62b493c7-37f2-41b1-9695-260f2b79cc2e",
           "name": "김다다",
           "number": "3",
-          "seat": 2
+          "seat": 0
         },
         {
           "id": "ef86c5c1-551c-4c10-b77a-95f645302df6",
           "name": "김라라",
           "number": "4",
-          "seat": 3
+          "seat": 2
         },
         {
           "id": "8d4a269b-e567-4676-b5a2-dc2064d46d6a",
@@ -65,7 +65,7 @@
           "id": "de5c286e-98c0-4486-8078-ca67d354678f",
           "name": "김아아",
           "number": "8",
-          "seat": 7
+          "seat": 1
         },
         {
           "id": "af282ad3-c861-40b0-b623-269ee99500b5",

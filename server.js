@@ -484,6 +484,18 @@ function applyAction(action, teacherId, studentLinkAccess = false) {
     throw new Error('이 작업은 교사 계정으로 로그인해야 사용할 수 있습니다.');
   }
 
+  if (action.type === 'delete-student') {
+    if (!teacherId || action.confirmed !== true) throw new Error('학생 삭제 확인이 필요합니다.');
+    const student = classroom.students.find((item) => item.id === action.studentId);
+    if (!student) throw new Error('학생을 찾을 수 없습니다.');
+    classroom.students = classroom.students.filter((item) => item.id !== student.id);
+    if (classroom.completions) delete classroom.completions[student.id];
+    for (const classCourse of state.courses.filter((item) => item.classId === classroom.id && item.ownerId === teacherId)) {
+      delete classCourse.completions?.[student.id];
+    }
+    return;
+  }
+
   if (action.type === 'add-task') {
     const title = String(action.title || '').trim();
     if (!teacherId || !title || !course || course.classId !== classroom.id || course.ownerId !== teacherId) throw new Error('과제 제목과 과목을 확인해 주세요.');

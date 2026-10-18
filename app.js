@@ -156,7 +156,7 @@ function printReport(classroom, course) {
 }
 
 function renderNoCourse(classroom) {
-  app.innerHTML = `<section class="page-heading"><div><p class="eyebrow">CLASSROOM / ${escapeHtml(classroom.name)}</p><h1>과목을 선택해 주세요</h1><p class="heading-note">이 학급에는 아직 과목이 없습니다.</p></div><div class="heading-controls">${courseSelect(classroom)}${classSelect()}${classCodeControl(classroom)}<button class="button secondary" id="manage-classroom-button" type="button">설정</button><button class="button" id="add-course-button" type="button">${icons.plus} 과목 추가</button><button class="button secondary" id="add-class-button" type="button">${icons.plus} 반 추가</button></div></section><section class="view-panel no-course-panel"><div><span class="view-icon">${icons.chart}</span><h2>과목을 추가하면 이 학급의 진행 현황을 볼 수 있어요.</h2><button class="button" id="add-first-course" type="button">${icons.plus} 첫 과목 만들기</button></div></section><section class="roster-tools"><div class="roster-upload"><div><strong>모든 학급 학생 명단</strong><span>엑셀은 학급별 시트에 번호·이름을, CSV는 학급·번호·이름 열을 작성해 한 번 올려요</span></div><div class="roster-upload-actions"><a class="button secondary small" href="/api/templates/class-roster" download>모든 학급 양식</a><label class="button secondary small" for="roster-file">엑셀 업로드</label><input id="roster-file" class="visually-hidden" type="file" accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv"></div></div><div class="add-student-inline"><label for="add-student-name">학생 한 명 추가</label><input id="add-student-name" placeholder="학생 이름" maxlength="30"><button class="button secondary small" id="add-student-button" type="button">${icons.plus} 추가</button></div></section>`;
+  app.innerHTML = `<section class="page-heading"><div><p class="eyebrow">CLASSROOM / ${escapeHtml(classroom.name)}</p><h1>과목을 선택해 주세요</h1><p class="heading-note">이 학급에는 아직 과목이 없습니다.</p></div><div class="heading-controls">${courseSelect(classroom)}${classSelect()}${classCodeControl(classroom)}<button class="button secondary" id="manage-classroom-button" type="button">설정</button><button class="button" id="add-course-button" type="button">${icons.plus} 과목 추가</button><button class="button secondary" id="add-class-button" type="button">${icons.plus} 반 추가</button></div></section><section class="view-panel no-course-panel"><div><span class="view-icon">${icons.chart}</span><h2>과목을 추가하면 이 학급의 진행 현황을 볼 수 있어요.</h2><button class="button" id="add-first-course" type="button">${icons.plus} 첫 과목 만들기</button></div></section><section class="roster-tools"><div class="roster-upload"><div><strong>모든 학급 학생 명단</strong><span>엑셀은 학급별 시트에 번호·이름을, CSV는 학급·번호·이름 열을 작성해 한 번 올려요</span></div><div class="roster-upload-actions"><a class="button secondary small" href="/api/templates/class-roster" download>모든 학급 양식</a><label class="button secondary small" for="roster-file">엑셀 업로드</label><input id="roster-file" class="visually-hidden" type="file" accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv"></div></div><div class="add-student-inline"><label for="add-student-name">학생 한 명 추가</label><input id="add-student-name" placeholder="학생 이름" maxlength="30"><button class="button secondary small" id="add-student-button" type="button">${icons.plus} 추가</button><button class="button secondary small" id="manage-students-button" type="button">학생 관리</button></div></section>`;
   document.querySelector('#class-select')?.addEventListener('change', (event) => {
     selectedClassId = event.target.value;
     selectedCourseId = state.courses.find((course) => course.classId === selectedClassId)?.id || '';
@@ -171,6 +171,7 @@ function renderNoCourse(classroom) {
     event.target.value = '';
   });
   document.querySelector('#add-student-button')?.addEventListener('click', addStudentFromInput);
+  document.querySelector('#manage-students-button')?.addEventListener('click', () => showStudentManager(classroom));
   document.querySelector('#add-student-name')?.addEventListener('keydown', (event) => { if (event.key === 'Enter') addStudentFromInput(); });
 }
 
@@ -226,7 +227,7 @@ function renderTeacher() {
       <div class="panel-content">${renderView(classroom, incomplete)}</div>
       <div class="panel-foot"><span>마지막 반영: 방금 전 · 여러 기기에서 자동으로 동기화됩니다</span><div class="panel-foot-actions"><button class="button secondary small" id="open-mini-roster" type="button">${icons.people} 미니명렬표 팝업</button><button class="button secondary small" id="export-course-csv" type="button">CSV 파일 저장</button><button class="button secondary small" id="print-course-report" type="button">인쇄 / PDF</button><button class="button secondary small" id="copy-tasks-button" type="button">과제 복사</button><button class="button secondary small" id="add-task-button" type="button">${icons.plus} 과제 추가</button></div></div>
     </section>
-    <section class="roster-tools"><div class="roster-upload"><div><strong>모든 학급 학생 명단</strong><span>엑셀은 학급별 시트에 번호·이름을 작성하세요. 새 시트 이름은 새 학급으로 만들어집니다. CSV는 학급·번호·이름 열을 사용해요.</span></div><div class="roster-upload-actions"><a class="button secondary small" href="/api/templates/class-roster" download>모든 학급 양식</a><label class="button secondary small" for="roster-file">엑셀 업로드</label><input id="roster-file" class="visually-hidden" type="file" accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv"></div></div><div class="add-student-inline"><label for="add-student-name">학생 한 명 추가</label><input id="add-student-name" placeholder="학생 이름" maxlength="30"><button class="button secondary small" id="add-student-button" type="button">${icons.plus} 추가</button></div></section>${printReport(classroom, course)}`;
+    <section class="roster-tools"><div class="roster-upload"><div><strong>모든 학급 학생 명단</strong><span>엑셀은 학급별 시트에 번호·이름을 작성하세요. 새 시트 이름은 새 학급으로 만들어집니다. CSV는 학급·번호·이름 열을 사용해요.</span></div><div class="roster-upload-actions"><a class="button secondary small" href="/api/templates/class-roster" download>모든 학급 양식</a><label class="button secondary small" for="roster-file">엑셀 업로드</label><input id="roster-file" class="visually-hidden" type="file" accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv"></div></div><div class="add-student-inline"><label for="add-student-name">학생 한 명 추가</label><input id="add-student-name" placeholder="학생 이름" maxlength="30"><button class="button secondary small" id="add-student-button" type="button">${icons.plus} 추가</button><button class="button secondary small" id="manage-students-button" type="button">학생 관리</button></div></section>${printReport(classroom, course)}`;
 
   document.querySelector('#class-select')?.addEventListener('change', (event) => {
     selectedClassId = event.target.value;
@@ -274,6 +275,7 @@ function renderTeacher() {
     event.target.value = '';
   });
   document.querySelector('#add-student-button')?.addEventListener('click', addStudentFromInput);
+  document.querySelector('#manage-students-button')?.addEventListener('click', () => showStudentManager(classroom));
   document.querySelector('#add-student-name')?.addEventListener('keydown', (event) => { if (event.key === 'Enter') addStudentFromInput(); });
   if (view === 'seats') bindSeatEditor(classroom);
 }
@@ -473,6 +475,23 @@ function addStudentFromInput() {
   const field = document.querySelector('#add-student-name');
   if (!field.value.trim()) return notify('학생 이름을 입력해 주세요.', true);
   act({ type: 'add-student', classId: currentClass().id, name: field.value }, '학생을 명단에 추가했어요.');
+}
+
+function showStudentManager(classroom) {
+  document.querySelector('#student-manager-dialog')?.remove();
+  document.body.insertAdjacentHTML('beforeend', `<dialog class="app-dialog student-manager-dialog" id="student-manager-dialog"><div class="dialog-heading"><div><p class="eyebrow">${escapeHtml(classroom.name)}</p><h2>학생 명단 관리</h2></div><button class="dialog-close" id="close-student-manager" type="button" aria-label="학생 명단 닫기">×</button></div><p class="dialog-note">전학 등으로 명단에서 제외할 학생을 삭제할 수 있어요.</p><div class="student-manager-list">${classroom.students.map((student, index) => `<div class="student-manager-row"><span class="student-number">${String(student.number || index + 1).padStart(2, '0')}</span><strong>${escapeHtml(student.name)}</strong><button class="button danger-button small" type="button" data-remove-student="${escapeHtml(student.id)}">삭제</button></div>`).join('') || '<div class="empty-state">등록된 학생이 없습니다.</div>'}</div></dialog>`);
+  const dialog = document.querySelector('#student-manager-dialog');
+  dialog.showModal();
+  document.querySelector('#close-student-manager').addEventListener('click', () => { dialog.close(); dialog.remove(); });
+  document.querySelectorAll('[data-remove-student]').forEach((button) => button.addEventListener('click', () => {
+    const student = classroom.students.find((entry) => entry.id === button.dataset.removeStudent);
+    if (!student) return;
+    dialog.close();
+    dialog.remove();
+    confirmIrreversibleDelete('학생', student.name, '학생 명단에서 삭제되고 이 학급의 모든 과목에서 해당 학생의 완료 기록도 삭제됩니다.', {
+      type: 'delete-student', classId: classroom.id, studentId: student.id
+    }, `${student.name} 학생을 명단에서 삭제했어요.`);
+  }));
 }
 
 function openMiniRoster() {
