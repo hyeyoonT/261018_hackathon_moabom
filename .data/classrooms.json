@@ -35,19 +35,19 @@
           "id": "62b493c7-37f2-41b1-9695-260f2b79cc2e",
           "name": "김다다",
           "number": "3",
-          "seat": 0
+          "seat": 11
         },
         {
           "id": "ef86c5c1-551c-4c10-b77a-95f645302df6",
           "name": "김라라",
           "number": "4",
-          "seat": 2
+          "seat": 15
         },
         {
           "id": "c995c6d7-16e8-41df-bcc3-a468678c0934",
           "name": "김바바",
           "number": "6",
-          "seat": 5
+          "seat": 2
         },
         {
           "id": "9bc20e44-5875-4682-bafe-bc9ae1b864a8",
@@ -59,37 +59,37 @@
           "id": "de5c286e-98c0-4486-8078-ca67d354678f",
           "name": "김아아",
           "number": "8",
-          "seat": 1
+          "seat": 10
         },
         {
           "id": "af282ad3-c861-40b0-b623-269ee99500b5",
           "name": "김자자",
           "number": "9",
-          "seat": 8
+          "seat": 14
         },
         {
           "id": "85b797f5-cb29-4d0f-ab3d-187e3ea89a53",
           "name": "김차차",
           "number": "10",
-          "seat": 9
+          "seat": 18
         },
         {
           "id": "13f31ef5-21f7-4583-add6-456a906fdaed",
           "name": "김카카",
           "number": "11",
-          "seat": 11
+          "seat": 1
         },
         {
           "id": "31883023-917c-46c5-b07d-2669be49dffa",
           "name": "김타타",
           "number": "12",
-          "seat": 10
+          "seat": 5
         },
         {
           "id": "5551544e-55a6-4579-8a83-5ef6192ba0c2",
           "name": "김파파",
           "number": "13",
-          "seat": 12
+          "seat": 9
         },
         {
           "id": "7763239d-b0e9-4bb0-b310-7997ff53eea9",
@@ -101,37 +101,37 @@
           "id": "4eabb298-94ca-49b5-b477-65549aa95061",
           "name": "이가가",
           "number": "15",
-          "seat": 14
+          "seat": 17
         },
         {
           "id": "8465dffd-7b71-476a-9545-3f004206af14",
           "name": "이나나",
           "number": "16",
-          "seat": 15
+          "seat": 0
         },
         {
           "id": "9d511be6-e304-4452-afe1-52da184a5bbe",
           "name": "이다다",
           "number": "17",
-          "seat": 16
+          "seat": 4
         },
         {
           "id": "25a3a63c-2004-4a66-8648-e02e9a040a3d",
           "name": "이라라",
           "number": "18",
-          "seat": 17
+          "seat": 8
         },
         {
           "id": "bc01ebe4-be26-4d59-8369-a9d673030921",
           "name": "이마마",
           "number": "19",
-          "seat": 18
+          "seat": 12
         },
         {
           "id": "06244190-6638-4838-bf85-ec48649545c8",
           "name": "이바바",
           "number": "20",
-          "seat": 19
+          "seat": 16
         }
       ],
       "tasks": [],
