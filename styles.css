@@ -181,7 +181,7 @@ h1, h2, h3, p { margin-top: 0; }
 .seat-card.progress-complete { border-color: var(--done-border); background: var(--done-bg); box-shadow: inset 0 0 0 1px #c2e1c8, 0 2px 5px #26382b0b; }
 .seat-card.progress-partial { border-color: var(--partial-border); background: var(--partial-bg); box-shadow: inset 0 0 0 1px #f5df9c, 0 2px 5px #26382b0b; }
 .seat-card:active { cursor: grabbing; }
-.seat-avatar { width: 27px; height: 27px; display: grid; place-items: center; flex: 0 0 27px; border-radius: 50%; color: #315e49; background: #e4eee5; font-size: 9px; font-weight: 800; }
+.seat-avatar { width: 27px; height: 27px; display: grid; place-items: center; flex: 0 0 27px; border-radius: 50%; color: #315e49; background: #e4eee5; font: 700 10px "DM Mono", monospace; }
 .seat-info { min-width: 0; }
 .seat-info strong { display: block; overflow: hidden; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
 .seat-info span { display: block; margin-top: 4px; color: #7d857c; font-size: 8px; }
@@ -391,7 +391,7 @@ h1, h2, h3, p { margin-top: 0; }
   .seat-grid { min-width: 450px; gap: 7px; }
   .seat { min-height: 72px; padding: 4px; }
   .seat-card { min-height: 54px; gap: 5px; padding: 5px; }
-  .seat-avatar { width: 22px; height: 22px; flex-basis: 22px; }
+  .seat-avatar { width: 22px; height: 22px; flex-basis: 22px; font-size: 9px; }
   .seat-info strong { font-size: 9px; }
   .seat-info span { font-size: 7px; }
   .incomplete-row { grid-template-columns: 1fr auto; gap: 7px; padding: 12px; }
