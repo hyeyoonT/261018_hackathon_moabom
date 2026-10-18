@@ -1,6 +1,347 @@
 {
-  "classrooms": [],
-  "courses": [],
+  "classrooms": [
+    {
+      "id": "742d30f5-0778-488a-82b1-56f2a58eba1b",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "name": "1-1",
+      "joinCode": "324175",
+      "rows": 4,
+      "cols": 5,
+      "students": [],
+      "tasks": [],
+      "completions": {}
+    },
+    {
+      "id": "317a7efe-9ffa-4412-8e53-804ad51925d3",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "name": "2-1",
+      "joinCode": "2F3EE3",
+      "rows": 5,
+      "cols": 4,
+      "students": [
+        {
+          "id": "040780ad-fc92-40f4-aaf1-71eb4d52b225",
+          "name": "김가가",
+          "number": "1",
+          "seat": 0
+        },
+        {
+          "id": "1da9286b-28bb-4945-a706-1002856f0d8f",
+          "name": "김나나",
+          "number": "2",
+          "seat": 1
+        },
+        {
+          "id": "62b493c7-37f2-41b1-9695-260f2b79cc2e",
+          "name": "김다다",
+          "number": "3",
+          "seat": 2
+        },
+        {
+          "id": "ef86c5c1-551c-4c10-b77a-95f645302df6",
+          "name": "김라라",
+          "number": "4",
+          "seat": 3
+        },
+        {
+          "id": "8d4a269b-e567-4676-b5a2-dc2064d46d6a",
+          "name": "김마마",
+          "number": "5",
+          "seat": 4
+        },
+        {
+          "id": "c995c6d7-16e8-41df-bcc3-a468678c0934",
+          "name": "김바바",
+          "number": "6",
+          "seat": 5
+        },
+        {
+          "id": "9bc20e44-5875-4682-bafe-bc9ae1b864a8",
+          "name": "김사사",
+          "number": "7",
+          "seat": 6
+        },
+        {
+          "id": "de5c286e-98c0-4486-8078-ca67d354678f",
+          "name": "김아아",
+          "number": "8",
+          "seat": 7
+        },
+        {
+          "id": "af282ad3-c861-40b0-b623-269ee99500b5",
+          "name": "김자자",
+          "number": "9",
+          "seat": 8
+        },
+        {
+          "id": "85b797f5-cb29-4d0f-ab3d-187e3ea89a53",
+          "name": "김차차",
+          "number": "10",
+          "seat": 9
+        },
+        {
+          "id": "13f31ef5-21f7-4583-add6-456a906fdaed",
+          "name": "김카카",
+          "number": "11",
+          "seat": 10
+        },
+        {
+          "id": "31883023-917c-46c5-b07d-2669be49dffa",
+          "name": "김타타",
+          "number": "12",
+          "seat": 11
+        },
+        {
+          "id": "5551544e-55a6-4579-8a83-5ef6192ba0c2",
+          "name": "김파파",
+          "number": "13",
+          "seat": 12
+        },
+        {
+          "id": "7763239d-b0e9-4bb0-b310-7997ff53eea9",
+          "name": "김하하",
+          "number": "14",
+          "seat": 13
+        },
+        {
+          "id": "4eabb298-94ca-49b5-b477-65549aa95061",
+          "name": "이가가",
+          "number": "15",
+          "seat": 14
+        },
+        {
+          "id": "8465dffd-7b71-476a-9545-3f004206af14",
+          "name": "이나나",
+          "number": "16",
+          "seat": 15
+        },
+        {
+          "id": "9d511be6-e304-4452-afe1-52da184a5bbe",
+          "name": "이다다",
+          "number": "17",
+          "seat": 16
+        },
+        {
+          "id": "25a3a63c-2004-4a66-8648-e02e9a040a3d",
+          "name": "이라라",
+          "number": "18",
+          "seat": 17
+        },
+        {
+          "id": "bc01ebe4-be26-4d59-8369-a9d673030921",
+          "name": "이마마",
+          "number": "19",
+          "seat": 18
+        },
+        {
+          "id": "06244190-6638-4838-bf85-ec48649545c8",
+          "name": "이바바",
+          "number": "20",
+          "seat": 19
+        }
+      ],
+      "tasks": [],
+      "completions": {}
+    },
+    {
+      "id": "d6961072-1e52-40b6-950c-49f7462d990c",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "name": "2-2",
+      "joinCode": "B7FCF8",
+      "rows": 4,
+      "cols": 5,
+      "students": [
+        {
+          "id": "5c895beb-c926-4e59-b4c6-703b98f966ae",
+          "name": "김가가",
+          "number": "1",
+          "seat": 0
+        },
+        {
+          "id": "6d03cfb7-c49a-4ec1-8d9d-ef51e9d7d233",
+          "name": "김나나",
+          "number": "2",
+          "seat": 1
+        },
+        {
+          "id": "4444e5bc-71d7-40a6-a8d1-da7116731e5e",
+          "name": "김다다",
+          "number": "3",
+          "seat": 2
+        },
+        {
+          "id": "1d44e0a2-f7b1-4b79-bb95-c86a53e8b75f",
+          "name": "김라라",
+          "number": "4",
+          "seat": 3
+        },
+        {
+          "id": "c73968aa-f0b4-41df-a7fe-93ace801b1e7",
+          "name": "김마마",
+          "number": "5",
+          "seat": 4
+        },
+        {
+          "id": "ca1f8ffc-001c-40c9-b005-7036d3295b44",
+          "name": "김바바",
+          "number": "6",
+          "seat": 5
+        },
+        {
+          "id": "001db0db-4060-4063-b557-af7af5a561de",
+          "name": "김사사",
+          "number": "7",
+          "seat": 6
+        },
+        {
+          "id": "bb3fb479-c10f-4bf0-bac5-c5854f3eefbb",
+          "name": "김아아",
+          "number": "8",
+          "seat": 7
+        },
+        {
+          "id": "7d1908cb-d293-4d86-a485-d462df2ba516",
+          "name": "김자자",
+          "number": "9",
+          "seat": 8
+        },
+        {
+          "id": "6e216275-ce25-4413-b150-37a16310c7c3",
+          "name": "김차차",
+          "number": "10",
+          "seat": 9
+        },
+        {
+          "id": "032872cc-edf0-49e9-9c67-075ba367ec9d",
+          "name": "김카카",
+          "number": "11",
+          "seat": 10
+        },
+        {
+          "id": "a258b795-b6da-457d-b920-428c46a720b7",
+          "name": "김타타",
+          "number": "12",
+          "seat": 11
+        },
+        {
+          "id": "149f440d-c4d0-4bf3-b3fa-14e654c946f7",
+          "name": "김파파",
+          "number": "13",
+          "seat": 12
+        },
+        {
+          "id": "d332e1c1-767a-49e9-9ee5-c18c1c0c9f07",
+          "name": "김하하",
+          "number": "14",
+          "seat": 13
+        },
+        {
+          "id": "285f21aa-fbdf-4be3-88d7-e3d8cedc3afc",
+          "name": "이가가",
+          "number": "15",
+          "seat": 14
+        },
+        {
+          "id": "b5a76eed-6407-4417-947c-e736233d5406",
+          "name": "이나나",
+          "number": "16",
+          "seat": 15
+        },
+        {
+          "id": "3aa590c7-0af5-4f0a-bb9b-e720015627d2",
+          "name": "이다다",
+          "number": "17",
+          "seat": 16
+        },
+        {
+          "id": "8b2ced34-285d-4b1b-8419-b53fc7d5049b",
+          "name": "이라라",
+          "number": "18",
+          "seat": 17
+        },
+        {
+          "id": "a09886a5-e81b-4aed-8aff-7ef7b612df5a",
+          "name": "이마마",
+          "number": "19",
+          "seat": 18
+        }
+      ],
+      "tasks": [],
+      "completions": {}
+    }
+  ],
+  "courses": [
+    {
+      "id": "78ede4c8-df76-450f-b08d-c8e96c90091a",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "studentToken": "6GPJlEBStzUM0bhezSkrB5358H0gWpGB",
+      "name": "기본 과목",
+      "classId": "742d30f5-0778-488a-82b1-56f2a58eba1b",
+      "tasks": [],
+      "completions": {}
+    },
+    {
+      "id": "2be7aa1b-3c58-478d-af86-f8f506b3d736",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "studentToken": "9HTKQw36A6dmXlHhlq48ua2tAPtkfiCL",
+      "name": "정보",
+      "classId": "742d30f5-0778-488a-82b1-56f2a58eba1b",
+      "tasks": [],
+      "completions": {}
+    },
+    {
+      "id": "f78b04e8-609e-40d2-b242-35aa18bda0da",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "studentToken": "n8uNEEyu5G_2-lA1-qYUnOBZ0rc9o1nO",
+      "name": "인공지능기초",
+      "classId": "742d30f5-0778-488a-82b1-56f2a58eba1b",
+      "tasks": [
+        {
+          "id": "7aa57ea1-913c-4651-91e3-0e8c12969a81",
+          "title": "MLM",
+          "instructions": ""
+        }
+      ],
+      "completions": {}
+    },
+    {
+      "id": "320f0e22-5ba1-4c0b-b367-185f531600d5",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "studentToken": "76OxInUjifUm3UWR3GI-BactC7RNy7PW",
+      "name": "기본 과목",
+      "classId": "317a7efe-9ffa-4412-8e53-804ad51925d3",
+      "tasks": [
+        {
+          "id": "0545c096-1df5-4059-a2ce-2a8530500725",
+          "title": "AI콘텐츠제작",
+          "instructions": ""
+        }
+      ],
+      "completions": {
+        "62b493c7-37f2-41b1-9695-260f2b79cc2e": {
+          "0545c096-1df5-4059-a2ce-2a8530500725": true
+        }
+      }
+    },
+    {
+      "id": "4bd0169b-2572-45d5-a370-36b49f261092",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "studentToken": "l11sgCH20Wbh4hXtmyWPiZrnWshjUSME",
+      "name": "기본 과목",
+      "classId": "d6961072-1e52-40b6-950c-49f7462d990c",
+      "tasks": [],
+      "completions": {}
+    },
+    {
+      "id": "42564e60-cfad-4a5b-95ba-eb7a2e6883dd",
+      "ownerId": "guest:603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "studentToken": "CoLLOeTDqY18xiuaOxPodAtCzWGAsq7n",
+      "name": "인공지능기초",
+      "classId": "317a7efe-9ffa-4412-8e53-804ad51925d3",
+      "tasks": [],
+      "completions": {}
+    }
+  ],
   "teachers": [
     {
       "id": "09501713-0d82-41e3-9b6d-450e2ebbfda0",
@@ -11,5 +352,11 @@
       "recoveryHash": "822fbf23a2d8c97d92b1dcd521167081b585f6771db612849d51bd6cdf549c89"
     }
   ],
-  "guests": []
+  "guests": [
+    {
+      "id": "603563b9-1888-46f5-98cf-19ba2dfd8398",
+      "tokenHash": "55f36d2c8d73729aafc5536059989308de1a5d3386b8a695b286b9e74f489df8",
+      "expiresAt": 1807854066351
+    }
+  ]
 }

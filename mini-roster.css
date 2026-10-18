@@ -21,7 +21,7 @@ button, select { font: inherit; }
 .mini-list-heading h2 { margin: 0; font-size: 13px; letter-spacing: -.03em; }
 .mini-list-heading span { color: #798278; font: 10px "DM Mono", monospace; }
 .student-list { display: grid; gap: 5px; }
-.student-row { min-height: 43px; display: grid; grid-template-columns: 27px 1fr auto; align-items: center; gap: 8px; padding: 5px 9px; border: 1px solid var(--line); border-left: 3px solid transparent; border-radius: 7px; background: #fffefa; transition: background .2s, border-color .2s; }
+.student-row { min-height: 43px; display: grid; grid-template-columns: 27px 1fr auto; align-items: center; gap: 8px; padding: 5px 9px; border: 1px solid #d3dfe9; border-left: 3px solid transparent; border-radius: 7px; background: #eaf1f7; transition: background .2s, border-color .2s; }
 .student-row.is-done { border-color: #d8e7d9; border-left-color: var(--green); background: #eaf2e9; }
 .student-index { color: #92998f; font: 9px "DM Mono", monospace; }
 .student-name { overflow: hidden; font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
